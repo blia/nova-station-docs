@@ -4,18 +4,23 @@ This is a public summary, not the full internal roadmap.
 
 ## Current Focus
 
-- Wayland client surface hosting.
-- Smithay-based compositor prototype.
-- OpenGL ES baseline rendering.
+- Station Core Runtime design.
+- Typed Object and ProgramObject contracts.
+- Event log, artifact, routing, and replay model.
+- Headless first runtime flow before visual integration.
 - Project-first architecture documentation.
 - Public communication and feedback loop.
 
 ## Near-Term
 
+- Prototype the headless core runtime.
+- Add pure replay-safe ProgramObject demo.
+- Add effectful shell-command ProgramObject demo.
+- Route stdout, stderr, and debug objects to compatible outlets.
 - Define Project model.
 - Define event store and projections.
-- Define Typed Object and ProgramObject contracts.
 - Define Project Presentation model.
+- Continue Wayland/compositor work as visual compatibility surface infrastructure.
 - Move visual UI toward Scene/DisplayList.
 - Keep rendering backend-agnostic.
 - Prototype Board and Stack presentations.

@@ -2,6 +2,25 @@
 
 This changelog is curated. It is not a raw commit log.
 
+## 2026-06-18: Station Core Runtime RFC
+
+Today we clarified the next internal implementation target: Nova Station is moving core-first, not compositor-first.
+
+Added public notes for the Station Core Runtime:
+
+- Typed Objects as clean values plus Station reflection metadata;
+- ProgramObjects as executable typed objects;
+- execution classes: pure, deterministic, effectful, and AI;
+- event-sourced state with replay rules;
+- JSON Lines as the first planned local event log format;
+- artifact storage for large outputs;
+- routing through project configuration instead of hardcoded UI paths;
+- a headless first runtime flow before deeper visual integration.
+
+Why it matters:
+
+The compositor and UI remain important, but they are presentation backends. The core system must also work without a GUI, which keeps the architecture aligned with project-first, agent-first, multi-device, and voice/audio use cases.
+
 ## 2026-06-18: How To Help Updated
 
 Updated the public help page with concrete ways people can support the project now:

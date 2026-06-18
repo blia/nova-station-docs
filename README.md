@@ -32,6 +32,7 @@ The goal is a workstation where:
 - [Ukrainian Pitch](docs/PITCH.uk.md)
 - [Public Vision](docs/VISION.md)
 - [Public Roadmap](docs/ROADMAP.md)
+- [Station Core Runtime](docs/CORE_RUNTIME.md)
 - [How To Help](docs/HOW_TO_HELP.md)
 - [Changelog](CHANGELOG.md)
 
@@ -46,6 +47,7 @@ Current private prototype work includes:
 - Smithay-based nested Wayland compositor prototype;
 - first Wayland client surface hosting;
 - Firefox/terminal launch experiments;
+- Station Core Runtime RFC for typed objects, ProgramObjects, event logs, artifacts, routing, and non-GUI operation;
 - architecture and memory documents.
 
 This is not yet a usable operating system.
