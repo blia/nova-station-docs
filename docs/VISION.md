@@ -52,6 +52,32 @@ The system should adapt the project to the device:
 - audio-only node: voice/audio presentation;
 - future devices: any capable Station Runtime node.
 
+## Beyond Workstations
+
+Nova Station is project-first, not desktop-first. That makes the model useful beyond normal computers.
+
+Potential device classes:
+
+- laptops/desktops;
+- phones/tablets;
+- cars;
+- smart homes;
+- entertainment systems;
+- voice-only devices;
+- embedded nodes and appliances.
+
+The same account can coordinate many Station Runtime nodes. The active Project defines context, outlets, and routing policy.
+
+Example Project contexts:
+
+- Work Project: code, logs, terminals, agents, browser compatibility surfaces.
+- Home Project: lights, sensors, cameras, routines, family notifications.
+- Entertainment Project: movies, YouTube-like connectors, short-form feeds, speakers, TV outlets.
+- Car Project: navigation, audio, calls, warnings, route context, voice interaction.
+- Presentation Project: slides, notes, timer, audience display, media output.
+
+If the active Project lacks a requested outlet, Station should explain the capability mismatch and offer to attach an outlet, switch Project, queue the object, or degrade to another modality.
+
 ## Rendering Direction
 
 Visual presentations should be backend-agnostic:

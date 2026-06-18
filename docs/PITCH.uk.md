@@ -56,6 +56,28 @@ project -> state -> agents -> presentations -> outlets
 
 Проєкт той самий. Змінюється тільки спосіб взаємодії.
 
+Це робить Nova Station ширшою за операційну систему для ноутбука.
+
+Та сама project/outlet модель може працювати для:
+
+- ноутбуків і desktop-комп'ютерів;
+- телефонів і планшетів;
+- автомобілів;
+- smart home;
+- entertainment systems;
+- voice-only devices;
+- embedded nodes та appliances.
+
+Замість apps, folders і desktops Nova Station організовує контекст навколо Projects:
+
+- Work Project;
+- Home Project;
+- Entertainment Project;
+- Car Project;
+- Presentation Project.
+
+Кожен project може мати свої outlets і routing policies. Якщо активний Work Project не має media outlet, Station може прямо сказати це і запропонувати тимчасово додати outlet, перемкнутись в Entertainment/Home Project, поставити media в queue або перейти в audio/text.
+
 ## Agent-first
 
 Nova Station - це не чатик збоку робочого столу.
@@ -103,6 +125,8 @@ service connector
 Результат: менше дубльованого UI-коду, менше зайвої runtime-ваги і чистіша системна модель.
 
 Це також природно паралелиться на різні пристрої: ноутбук показує board, телефон дає controls, планшет показує logs, speaker бере audio. Не треба стрімити весь desktop всюди.
+
+Економія ресурсів тут структурна: менше дубльованих app-shells, менше дубльованих media/chat/feed/notification систем, менше desktop video streaming, менше background mini-platforms і більше reuse спільних system outlets.
 
 Якщо потрібного outlet зараз немає, система не має ламатися. Video reference без media outlet може стати text summary, audio-only playback, queued item або compatibility surface. Об'єкт лишається валідним; змінюється тільки presentation.
 

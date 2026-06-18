@@ -54,6 +54,28 @@ agent listens -> agent acts -> agent reports
 
 The project is the same. Only the presentation changes.
 
+This makes Nova Station broader than a laptop operating system.
+
+The same project/outlet model can apply to:
+
+- laptops and desktops;
+- phones and tablets;
+- cars;
+- smart homes;
+- entertainment systems;
+- voice-only devices;
+- embedded nodes and appliances.
+
+Instead of organizing life around apps, folders, and desktops, Nova Station organizes context around Projects:
+
+- Work Project;
+- Home Project;
+- Entertainment Project;
+- Car Project;
+- Presentation Project.
+
+Each project can define different outlets and routing policies. If the active Work Project has no media outlet, Station can say that clearly and offer to attach one temporarily, switch to an Entertainment/Home Project, queue the media, or degrade to audio/text.
+
 ## Agent-First
 
 Nova Station is not a chat window next to your desktop.
@@ -101,6 +123,8 @@ service connector
 The result is less duplicated UI code, less duplicated runtime overhead, and a cleaner system model.
 
 It also makes multi-device operation natural: the laptop can show the board, the phone can expose controls, the tablet can show logs, and a speaker can handle audio. No whole desktop has to be streamed everywhere.
+
+The resource savings are structural: fewer duplicated app shells, fewer duplicated media/chat/feed/notification systems, less desktop video streaming, fewer background mini-platforms, and more reuse of shared system outlets.
 
 If the best outlet is missing, the system should not break. A video reference without a media outlet can become a text summary, audio-only playback, a queued item, or a compatibility surface. The object remains valid; only the presentation changes.
 

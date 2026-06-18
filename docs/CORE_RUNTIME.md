@@ -11,6 +11,9 @@ That means the same project model should eventually work through:
 - a terminal/log outlet;
 - a browser compatibility surface;
 - a microphone and speaker with no GUI at all.
+- a car audio/navigation interface;
+- a smart home outlet graph;
+- an entertainment/media device.
 
 ## Core Flow
 
@@ -144,6 +147,8 @@ If no media outlet is available, the object is still valid. Station can keep the
 The connector did not fail. The media object did not vanish. Only the current presentation route is unavailable.
 
 This is a core rule: failure to present is not failure to compute, fetch, store, or understand.
+
+The same rule applies across Project contexts. If a Work Project has no media outlet, Station can explain the capability mismatch and offer to temporarily attach a media outlet, switch to an Entertainment/Home Project, queue the media, or degrade to audio/text.
 
 Why this matters:
 

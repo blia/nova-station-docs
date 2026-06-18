@@ -29,6 +29,8 @@ We also clarified the application-dissolution thesis: many traditional app shell
 
 Added graceful fallback note: if a connector returns an object but no suitable outlet is available, Station should keep the object and offer alternative presentations instead of failing like a traditional app.
 
+Added broader device-class note: the same project/outlet model should apply to laptops, phones, cars, smart homes, entertainment systems, voice-only devices, and embedded nodes. Projects become the organizing context across devices.
+
 ## 2026-06-18: How To Help Updated
 
 Updated the public help page with concrete ways people can support the project now:
