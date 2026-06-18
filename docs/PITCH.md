@@ -1,6 +1,6 @@
 # Nova Station
 
-Project-first AI workstation.
+Project-first AI operating environment.
 
 Be focused.
 
@@ -10,7 +10,13 @@ Not a nicer desktop.
 Not another Linux shell.
 Not an AI chatbot bolted onto old windows.
 
-A new workstation model for the AI era.
+A new project-first operating environment for the AI era.
+
+Not just a workstation.
+
+A Station: one project context, many devices, many outlets.
+
+A laptop, phone, car, TV, smart home hub, speaker, and server can all participate in the same active project under one account.
 
 ## The Problem
 
@@ -42,7 +48,7 @@ It is a living work context: state, agents, logs, tools, history, devices, prese
 
 ## Presentation Is Not Just GUI
 
-On a workstation monitor, a project can be a board.
+On a large monitor, a project can be a board.
 
 On a phone, the same project can be a stack.
 
@@ -159,9 +165,9 @@ AI outputs are not blindly recomputed during replay. Accepted non-deterministic 
 
 ## Why It Matters
 
-The next workstation is not a better desktop.
+The next personal computing environment is not a better desktop.
 
-It is a project-first, agent-first station for work.
+It is a project-first, agent-first Station for work, home, media, mobility, and connected devices.
 
 If it works, apps no longer need to own every interface, projects no longer dissolve into windows and tabs, agents no longer operate from a side-channel, and state no longer disappears into live process memory.
 
@@ -169,4 +175,4 @@ Many classic app shells can disappear into connectors and outlets.
 
 The upside is not a marginally cleaner desktop.
 
-The upside is a new category: an AI-native workstation where projects are durable, agents are native, devices are outlets, and the system remembers how work happened.
+The upside is a new category: an AI-native operating environment where projects are durable, agents are native, devices are outlets, and the system remembers how work happened.

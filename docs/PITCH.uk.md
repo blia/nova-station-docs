@@ -1,6 +1,6 @@
 # Nova Station
 
-Project-first AI workstation.
+Project-first AI operating environment.
 
 Be focused.
 
@@ -10,7 +10,13 @@ Nova Station - це спроба зробити наступну віху в е�
 Не ще один Linux shell.
 Не чат-бот, прикручений збоку до старих вікон.
 
-Це нова модель workstation для AI-era.
+Це нове project-first operating environment для AI-era.
+
+Не просто workstation.
+
+Station: один project context, багато пристроїв, багато outlets.
+
+Ноутбук, телефон, авто, TV, smart home hub, колонка і сервер можуть разом брати участь в одному активному проєкті під одним account.
 
 ## Проблема
 
@@ -161,9 +167,9 @@ AI-результати не переобчислюються на replay. Пр�
 
 ## Чому це важливо
 
-Наступна workstation - це не просто кращий desktop.
+Наступне personal computing environment - це не просто кращий desktop.
 
-Це project-first, agent-first station для роботи.
+Це project-first, agent-first Station для роботи, дому, медіа, мобільності і connected devices.
 
 Якщо це спрацює, apps більше не мають володіти кожним інтерфейсом, projects не розчиняються у вікнах і табах, agents не працюють через side-channel, а state не зникає у live process memory.
 
@@ -171,4 +177,4 @@ AI-результати не переобчислюються на replay. Пр�
 
 Потенційний upside - це не "трошки зручніший desktop".
 
-Потенційний upside - це нова категорія: AI-native workstation, де проєкти довговічні, агенти нативні, пристрої є outlets, а система пам'ятає, як саме відбувалася робота.
+Потенційний upside - це нова категорія: AI-native operating environment, де проєкти довговічні, агенти нативні, пристрої є outlets, а система пам'ятає, як саме відбувалася робота.

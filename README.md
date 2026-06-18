@@ -1,10 +1,12 @@
 # Nova Station
 
-Project-first AI workstation.
+Project-first AI operating environment.
+
+Not just a workstation. A Station: one project context, many devices, many outlets.
 
 Be focused.
 
-Nova Station is an early operating-system/workstation project exploring a different model for the AI era.
+Nova Station is an early project-first operating environment exploring a different model for the AI era.
 
 Classic systems start from desktops, apps, windows, and tabs. Nova Station starts from projects, state, agents, presentations, and outlets.
 
@@ -16,7 +18,7 @@ Mainstream operating systems are extremely powerful universal app and entertainm
 
 Nova Station takes a different tradeoff: optimize the system around focused project work.
 
-The goal is a workstation where:
+The goal is a Station where:
 
 - projects are first-class stateful contexts;
 - agents are native system participants;

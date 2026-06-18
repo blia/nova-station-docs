@@ -33,6 +33,8 @@ Added broader device-class note: the same project/outlet model should apply to l
 
 Added IDE dissolution example: IDE-like apps should split into focused code editor outlets, language/tool connectors, build/test/log/status outlets, Git/source-hosting connectors, terminal/command outlets, AI agents, and project state.
 
+Refined positioning: Nova Station is now described as a project-first AI operating environment, not only a workstation. Workstation is one use case; Station spans laptops, phones, cars, homes, entertainment devices, and embedded nodes.
+
 ## 2026-06-18: How To Help Updated
 
 Updated the public help page with concrete ways people can support the project now:

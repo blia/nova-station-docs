@@ -1,6 +1,10 @@
 # Public Vision
 
-Nova Station is a project-first AI workstation.
+Nova Station is a project-first AI operating environment.
+
+Not just a workstation.
+
+The product model is a Station: one project context, many devices, many outlets, coordinated through state, agents, and routing policy.
 
 The central idea:
 
@@ -99,4 +103,4 @@ OpenGL ES is the current baseline because the active prototype runs in an Androi
 
 This is early research and prototyping.
 
-The current goal is to prove the compositor, project model, presentation model, and agent-readable architecture step by step.
+The current goal is to prove the Station Core Runtime first: Typed Objects, executable object references, event log, artifacts, routing policy, graceful outlet fallback, and then visual/audio/compatibility presentation backends.
