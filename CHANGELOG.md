@@ -23,6 +23,10 @@ Why it matters:
 
 The compositor and UI remain important, but they are presentation backends. The core system must also work without a GUI, which keeps the architecture aligned with project-first, agent-first, multi-device, and voice/audio use cases.
 
+Public pitch/vision update:
+
+We also clarified the application-dissolution thesis: many traditional app shells should become service connectors plus Typed Objects, agents, routing policy, and system outlets. This should reduce duplicated UI/runtime work and make multi-device presentation state-driven instead of desktop-stream-driven.
+
 ## 2026-06-18: How To Help Updated
 
 Updated the public help page with concrete ways people can support the project now:

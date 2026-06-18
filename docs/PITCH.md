@@ -24,6 +24,10 @@ It is not a workspace. It is a pile of windows.
 
 Modern mainstream operating systems are powerful universal app and entertainment platforms. But they are optimized for launching and juggling apps, not for preserving deep project focus.
 
+That model also wastes a huge amount of work.
+
+Every app brings its own media viewer, chat panel, notifications, search, feed, settings, layout system, and device assumptions. We run many small UI universes next to each other, then manually copy context between them.
+
 ## The Shift
 
 Nova Station starts from projects:
@@ -78,6 +82,26 @@ StatePatchProposal
 
 Nova Station decides where those objects go: board, phone, speaker, agent summary, or several places at once.
 
+But many things we call apps should become smaller than apps.
+
+YouTube-like services should not need a full GUI shell if Station already has media outlets, feed outlets, media controls, agents, and a connector that exposes videos and playback references.
+
+GitHub-like services should not need to own the whole developer interface if Station already has code viewers/editors, logs, status, notifications, agents, and a connector that exposes repositories, issues, checks, files, and actions.
+
+In this model, many traditional apps dissolve into:
+
+```text
+service connector
+    + Typed Objects
+    + agents
+    + system outlets
+    + project routing policy
+```
+
+The result is less duplicated UI code, less duplicated runtime overhead, and a cleaner system model.
+
+It also makes multi-device operation natural: the laptop can show the board, the phone can expose controls, the tablet can show logs, and a speaker can handle audio. No whole desktop has to be streamed everywhere.
+
 ## Time Machine
 
 Nova Station state is event-sourced:
@@ -97,6 +121,8 @@ The next workstation is not a better desktop.
 It is a project-first, agent-first station for work.
 
 If it works, apps no longer need to own every interface, projects no longer dissolve into windows and tabs, agents no longer operate from a side-channel, and state no longer disappears into live process memory.
+
+Many classic app shells can disappear into connectors and outlets.
 
 The upside is not a marginally cleaner desktop.
 

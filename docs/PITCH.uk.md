@@ -26,6 +26,10 @@ Nova Station - це спроба зробити наступну віху в е�
 
 Сучасні mainstream ОС - це потужні універсальні app/entertainment platforms. Але вони оптимізовані під запуск і жонглювання програмами, а не під глибокий фокус на проєкті.
 
+Ця модель ще й витрачає купу зайвої роботи.
+
+Кожна app приносить свій media viewer, chat panel, notifications, search, feed, settings, layout system і свої припущення про пристрої. Ми запускаємо поруч багато маленьких UI-всесвітів, а потім вручну переносимо контекст між ними.
+
 ## Зсув
 
 Nova Station починається з проєкту:
@@ -80,6 +84,26 @@ StatePatchProposal
 
 Nova Station вирішує, куди ці об'єкти доставити: board, телефон, speaker, agent summary або кілька місць одразу.
 
+Але багато того, що ми зараз називаємо apps, має стати меншим за apps.
+
+YouTube-like сервіси не мають потребувати повну GUI-shell, якщо Station уже має media outlets, feed outlets, media controls, agents і connector, який дає videos та playback references.
+
+GitHub-like сервіси не мають володіти всім developer interface, якщо Station уже має code viewers/editors, logs, status, notifications, agents і connector, який дає repositories, issues, checks, files та actions.
+
+У цій моделі багато класичних apps розчиняються в:
+
+```text
+service connector
+    + Typed Objects
+    + agents
+    + system outlets
+    + project routing policy
+```
+
+Результат: менше дубльованого UI-коду, менше зайвої runtime-ваги і чистіша системна модель.
+
+Це також природно паралелиться на різні пристрої: ноутбук показує board, телефон дає controls, планшет показує logs, speaker бере audio. Не треба стрімити весь desktop всюди.
+
 ## Time Machine
 
 Стан Nova Station event-sourced:
@@ -99,6 +123,8 @@ AI-результати не переобчислюються на replay. Пр�
 Це project-first, agent-first station для роботи.
 
 Якщо це спрацює, apps більше не мають володіти кожним інтерфейсом, projects не розчиняються у вікнах і табах, agents не працюють через side-channel, а state не зникає у live process memory.
+
+Багато класичних app-shells можуть просто зникнути, розчинившись у connectors та outlets.
 
 Потенційний upside - це не "трошки зручніший desktop".
 
