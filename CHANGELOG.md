@@ -27,6 +27,8 @@ Public pitch/vision update:
 
 We also clarified the application-dissolution thesis: many traditional app shells should become service connectors plus Typed Objects, agents, routing policy, and system outlets. This should reduce duplicated UI/runtime work and make multi-device presentation state-driven instead of desktop-stream-driven.
 
+Added graceful fallback note: if a connector returns an object but no suitable outlet is available, Station should keep the object and offer alternative presentations instead of failing like a traditional app.
+
 ## 2026-06-18: How To Help Updated
 
 Updated the public help page with concrete ways people can support the project now:

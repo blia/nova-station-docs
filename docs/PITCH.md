@@ -102,6 +102,8 @@ The result is less duplicated UI code, less duplicated runtime overhead, and a c
 
 It also makes multi-device operation natural: the laptop can show the board, the phone can expose controls, the tablet can show logs, and a speaker can handle audio. No whole desktop has to be streamed everywhere.
 
+If the best outlet is missing, the system should not break. A video reference without a media outlet can become a text summary, audio-only playback, a queued item, or a compatibility surface. The object remains valid; only the presentation changes.
+
 ## Time Machine
 
 Nova Station state is event-sourced:

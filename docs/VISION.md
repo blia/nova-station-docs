@@ -43,6 +43,8 @@ Benefits:
 - cleaner agent access to project context;
 - fewer app-specific silos.
 
+Missing outlets are handled as routing states, not crashes. If a connector returns a media reference but no media outlet exists, Station can keep the object and offer text summary, audio-only playback, queue-for-later, or compatibility-surface alternatives.
+
 The system should adapt the project to the device:
 
 - large monitor: board;

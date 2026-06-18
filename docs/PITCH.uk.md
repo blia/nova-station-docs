@@ -104,6 +104,8 @@ service connector
 
 Це також природно паралелиться на різні пристрої: ноутбук показує board, телефон дає controls, планшет показує logs, speaker бере audio. Не треба стрімити весь desktop всюди.
 
+Якщо потрібного outlet зараз немає, система не має ламатися. Video reference без media outlet може стати text summary, audio-only playback, queued item або compatibility surface. Об'єкт лишається валідним; змінюється тільки presentation.
+
 ## Time Machine
 
 Стан Nova Station event-sourced:

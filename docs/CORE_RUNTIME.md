@@ -119,6 +119,32 @@ The demo will likely include:
 - an effectful shell command program that records stdout, stderr, and exit code;
 - text/error/debug outlets.
 
+## Graceful Missing Outlets
+
+Missing outlets should not break the system.
+
+Example:
+
+```text
+User: "I want to watch the latest episode from a channel I follow"
+    -> agent selects a video-service connector
+    -> connector returns a MediaRef
+    -> Station tries to route it to a media outlet
+```
+
+If a media outlet is available, the video plays there.
+
+If no media outlet is available, the object is still valid. Station can keep the media reference and offer alternatives:
+
+- summarize the video through text;
+- play or extract audio through an audio outlet;
+- queue it until a media outlet appears;
+- open it through a compatibility surface if allowed.
+
+The connector did not fail. The media object did not vanish. Only the current presentation route is unavailable.
+
+This is a core rule: failure to present is not failure to compute, fetch, store, or understand.
+
 Why this matters:
 
 Nova Station is not trying to polish windows first. It is trying to build the execution/state kernel that can later power visual boards, voice-only operation, multi-device workflows, agents, and compatibility apps.
