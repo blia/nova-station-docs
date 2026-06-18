@@ -35,6 +35,8 @@ Added IDE dissolution example: IDE-like apps should split into focused code edit
 
 Refined positioning: Nova Station is now described as a project-first AI operating environment, not only a workstation. Workstation is one use case; Station spans laptops, phones, cars, homes, entertainment devices, and embedded nodes.
 
+Rewrote the public README, Pitch, and Vision documents as single coherent narratives instead of incremental updates. The new structure starts from the old app/window model, moves to Projects, then explains outlets, application dissolution, multi-device operation, event-sourced memory, compatibility, and why the Station Core Runtime comes first.
+
 ## 2026-06-18: How To Help Updated
 
 Updated the public help page with concrete ways people can support the project now:

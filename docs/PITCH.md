@@ -4,154 +4,126 @@ Project-first AI operating environment.
 
 Be focused.
 
-Nova Station is an attempt to define the next major step in operating systems.
+Nova Station is not a nicer desktop and not a chatbot attached to old windows.
 
-Not a nicer desktop.
-Not another Linux shell.
-Not an AI chatbot bolted onto old windows.
+It is a different operating-system thesis:
 
-A new project-first operating environment for the AI era.
+```text
+not apps first
+not windows first
+not screens first
 
-Not just a workstation.
+projects first
+state first
+agents first
+outlets by role
+```
 
-A Station: one project context, many devices, many outlets.
+The goal is a Station: one project context, many devices, many outlets, all coordinated through state.
 
-A laptop, phone, car, TV, smart home hub, speaker, and server can all participate in the same active project under one account.
+## Why
 
-## The Problem
+Classic operating systems still start from desktops, apps, windows, and tabs.
 
-Computers still start from the wrong abstraction.
+That model scatters project context across browsers, terminals, chats, logs, agents, devices, and app-specific interfaces.
 
-We boot into a desktop, open apps, stack windows, lose context across tabs, terminals, browsers, chats, logs, agents, and devices.
+It also wastes enormous effort. Every app rebuilds its own media viewer, chat panel, notifications, search, settings, layout, feed, editor shell, and device assumptions.
 
-Then we call that a workspace.
-
-It is not a workspace. It is a pile of windows.
-
-Modern mainstream operating systems are powerful universal app and entertainment platforms. But they are optimized for launching and juggling apps, not for preserving deep project focus.
-
-That model also wastes a huge amount of work.
-
-Every app brings its own media viewer, chat panel, notifications, search, feed, settings, layout system, and device assumptions. We run many small UI universes next to each other, then manually copy context between them.
+AI makes this worse, not better, if we only bolt agents onto the old model. Agents need structured project state, not a pile of windows.
 
 ## The Shift
 
-Nova Station starts from projects:
+Nova Station starts from the Project.
+
+A Project is not a folder or group of windows. It is a living context:
+
+- state;
+- history;
+- agents;
+- connectors;
+- typed objects;
+- outlets;
+- device roles;
+- logs;
+- media;
+- code;
+- notifications;
+- restore points.
+
+The same Project can be presented differently:
+
+- large monitor: board;
+- phone: focused stack and controls;
+- car: audio, navigation, warnings, voice;
+- home: sensors, routines, media, notifications;
+- audio-only node: voice agents.
+
+The Project is the same. The presentation changes.
+
+## Apps Dissolve
+
+Many traditional apps should become smaller than apps.
+
+YouTube-like services can expose media references and playback controls. Station routes them to media outlets, feed outlets, phone controls, speakers, or queues.
+
+GitHub-like services can expose repositories, files, issues, checks, notifications, and actions. Station routes them to code outlets, logs, status, agents, and notifications.
+
+IDE-like apps can split into:
 
 ```text
-project -> state -> agents -> presentations -> outlets
+code editor outlet
+language/tool connectors
+build/test/log/status outlets
+Git/source-hosting connector
+terminal/command outlet
+AI agents
+Project state
 ```
 
-A project is not a folder, repository, or group of windows.
-
-It is a living work context: state, agents, logs, tools, history, devices, presentations, and continuity.
-
-## Presentation Is Not Just GUI
-
-On a large monitor, a project can be a board.
-
-On a phone, the same project can be a stack.
-
-On a Raspberry Pi with only a microphone and speaker, the same project can be voice/audio:
-
-```text
-agent listens -> agent acts -> agent reports
-```
-
-The project is the same. Only the presentation changes.
-
-This makes Nova Station broader than a laptop operating system.
-
-The same project/outlet model can apply to:
-
-- laptops and desktops;
-- phones and tablets;
-- cars;
-- smart homes;
-- entertainment systems;
-- voice-only devices;
-- embedded nodes and appliances.
-
-Instead of organizing life around apps, folders, and desktops, Nova Station organizes context around Projects:
-
-- Work Project;
-- Home Project;
-- Entertainment Project;
-- Car Project;
-- Presentation Project.
-
-Each project can define different outlets and routing policies. If the active Work Project has no media outlet, Station can say that clearly and offer to attach one temporarily, switch to an Entertainment/Home Project, queue the media, or degrade to audio/text.
-
-## Agent-First
-
-Nova Station is not a chat window next to your desktop.
-
-Agents are system participants.
-
-They can observe project state, logs, outputs, events, and presentations. They can summarize, propose actions, request approval, and route results to the right outlet.
+The editor edits code. The Project is the environment.
 
 ## Typed Objects And Outlets
 
-Programs become executable Typed Objects.
-
-They describe what they accept, emit, can do, require, and whether they are deterministic.
-
-Programs produce meaningful objects:
+Programs and connectors emit Typed Objects:
 
 ```text
 CodeBlock
 MediaRef
 ChatMessage
-Alert
-MetricSample
+Notification
 CommandResult
 StatePatchProposal
 ```
 
-Nova Station decides where those objects go: board, phone, speaker, agent summary, or several places at once.
+Station decides where those objects go.
 
-But many things we call apps should become smaller than apps.
+The app does not own every interface. Station owns delivery policy.
 
-YouTube-like services should not need a full GUI shell if Station already has media outlets, feed outlets, media controls, agents, and a connector that exposes videos and playback references.
+If an outlet is missing, the system should not break. A video reference without a media outlet can become a text summary, audio-only playback, queued item, or compatibility surface.
 
-GitHub-like services should not need to own the whole developer interface if Station already has code viewers/editors, logs, status, notifications, agents, and a connector that exposes repositories, issues, checks, files, and actions.
+The object remains valid. Only the current presentation route is unavailable.
 
-IDE-like apps should also shrink.
+## One Account, Many Devices
 
-A classic IDE bundles editor, terminal, logs, debugger, Git UI, test runner, language tools, AI assistant, notifications, and layout shell into one heavy app. Nova Station should split that into focused outlets and connectors:
+Nova Station is not only for laptops.
 
-```text
-IDE
-    -> code editor outlet
-    -> language/tool connectors
-    -> build/test/log/status outlets
-    -> Git/source-hosting connector
-    -> terminal/command outlet
-    -> AI agents
-    -> project state
-```
+One account can coordinate many Station Runtime nodes:
 
-The editor edits code. The project is the environment.
+- laptop;
+- phone;
+- tablet;
+- car;
+- TV;
+- smart home hub;
+- speaker;
+- server;
+- embedded device.
 
-In this model, many traditional apps dissolve into:
+This is not remote desktop. Devices do not need to stream one screen everywhere.
 
-```text
-service connector
-    + Typed Objects
-    + agents
-    + system outlets
-    + project routing policy
-```
+They share Station-owned state and object references. Each device presents or controls the parts it is good at.
 
-The result is less duplicated UI code, less duplicated runtime overhead, and a cleaner system model.
-
-It also makes multi-device operation natural: the laptop can show the board, the phone can expose controls, the tablet can show logs, and a speaker can handle audio. No whole desktop has to be streamed everywhere.
-
-The resource savings are structural: fewer duplicated app shells, fewer duplicated media/chat/feed/notification systems, less desktop video streaming, fewer background mini-platforms, and more reuse of shared system outlets.
-
-If the best outlet is missing, the system should not break. A video reference without a media outlet can become a text summary, audio-only playback, a queued item, or a compatibility surface. The object remains valid; only the presentation changes.
-
-## Time Machine
+## Memory And Replay
 
 Nova Station state is event-sourced:
 
@@ -159,20 +131,33 @@ Nova Station state is event-sourced:
 snapshot + ordered event log = deterministic state
 ```
 
-That enables restore, replay, branching from previous state, explanation, and eventually sync across machines.
+That enables restore, replay, explanation, branching from previous state, and future sync across machines.
 
-AI outputs are not blindly recomputed during replay. Accepted non-deterministic results are recorded as events/artifacts.
+AI and other non-deterministic results are recorded as events/artifacts. Replay restores accepted results instead of asking a model again.
+
+## Compatibility
+
+Classic apps still matter.
+
+Firefox, terminals, editors, GTK/Qt apps, and old windows become compatibility surfaces inside Project Presentations.
+
+The compositor is important infrastructure.
+
+It is not the product metaphor.
 
 ## Why It Matters
 
-The next personal computing environment is not a better desktop.
+The desktop was built for apps.
 
-It is a project-first, agent-first Station for work, home, media, mobility, and connected devices.
+Nova Station is being built for projects, agents, devices, and continuity.
 
-If it works, apps no longer need to own every interface, projects no longer dissolve into windows and tabs, agents no longer operate from a side-channel, and state no longer disappears into live process memory.
+If this works, the upside is not a cleaner desktop.
 
-Many classic app shells can disappear into connectors and outlets.
+The upside is a new category of operating environment where:
 
-The upside is not a marginally cleaner desktop.
-
-The upside is a new category: an AI-native operating environment where projects are durable, agents are native, devices are outlets, and the system remembers how work happened.
+- Projects are durable;
+- agents are native;
+- devices are outlets;
+- apps dissolve into connectors and focused capabilities;
+- state can be replayed and restored;
+- the system remembers how work happened.

@@ -4,177 +4,162 @@ Project-first AI operating environment.
 
 Be focused.
 
-Nova Station - це спроба зробити наступну віху в еволюції операційних систем.
+Nova Station - це не красивіший desktop і не чат-бот, прикручений до старих вікон.
 
-Не просто красивіший desktop.
-Не ще один Linux shell.
-Не чат-бот, прикручений збоку до старих вікон.
+Це інша thesis операційної системи:
 
-Це нове project-first operating environment для AI-era.
+```text
+не apps first
+не windows first
+не screens first
 
-Не просто workstation.
+projects first
+state first
+agents first
+outlets by role
+```
 
-Station: один project context, багато пристроїв, багато outlets.
+Мета - Station: один project context, багато пристроїв, багато outlets, усе координується через state.
 
-Ноутбук, телефон, авто, TV, smart home hub, колонка і сервер можуть разом брати участь в одному активному проєкті під одним account.
+## Чому
 
-## Проблема
+Класичні ОС досі стартують з desktops, apps, windows і tabs.
 
-Сучасні системи досі стартують з робочого столу.
+Ця модель розмазує project context між browsers, terminals, chats, logs, agents, devices і app-specific interfaces.
 
-Ми відкриваємо програми, розкладаємо вікна, губимо контекст між браузером, терміналом, логами, чатами, задачами, агентами і пристроями.
+Вона ще й витрачає купу зайвої роботи. Кожна app заново будує media viewer, chat panel, notifications, search, settings, layout, feed, editor shell і свої device assumptions.
 
-А потім називаємо це workspace.
-
-Але це не workspace.
-
-Це купа вікон.
-
-Сучасні mainstream ОС - це потужні універсальні app/entertainment platforms. Але вони оптимізовані під запуск і жонглювання програмами, а не під глибокий фокус на проєкті.
-
-Ця модель ще й витрачає купу зайвої роботи.
-
-Кожна app приносить свій media viewer, chat panel, notifications, search, feed, settings, layout system і свої припущення про пристрої. Ми запускаємо поруч багато маленьких UI-всесвітів, а потім вручну переносимо контекст між ними.
+AI робить це ще гіршим, якщо просто прикрутити agents до старої моделі. Agents потрібен structured project state, а не купа windows.
 
 ## Зсув
 
-Nova Station починається з проєкту:
+Nova Station починається з Project.
+
+Project - це не folder і не group of windows. Це живий context:
+
+- state;
+- history;
+- agents;
+- connectors;
+- typed objects;
+- outlets;
+- device roles;
+- logs;
+- media;
+- code;
+- notifications;
+- restore points.
+
+Той самий Project може мати різну presentation:
+
+- large monitor: board;
+- phone: focused stack and controls;
+- car: audio, navigation, warnings, voice;
+- home: sensors, routines, media, notifications;
+- audio-only node: voice agents.
+
+Project той самий. Змінюється presentation.
+
+## Apps розчиняються
+
+Багато традиційних apps мають стати меншими за apps.
+
+YouTube-like сервіси можуть давати media references і playback controls. Station маршрутизує їх у media outlets, feed outlets, phone controls, speakers або queue.
+
+GitHub-like сервіси можуть давати repositories, files, issues, checks, notifications і actions. Station маршрутизує їх у code outlets, logs, status, agents і notifications.
+
+IDE-like apps можуть розкластися на:
 
 ```text
-project -> state -> agents -> presentations -> outlets
+code editor outlet
+language/tool connectors
+build/test/log/status outlets
+Git/source-hosting connector
+terminal/command outlet
+AI agents
+Project state
 ```
 
-Проєкт - це не папка, не репозиторій і не набір відкритих вікон.
+Editor редагує code. Project є environment.
 
-Це живий контекст роботи: стан, агенти, логи, інструменти, історія, пристрої, презентації і безперервність.
+## Typed Objects And Outlets
 
-## Презентація не обов'язково GUI
-
-На великому моніторі проєкт може бути board.
-
-На телефоні той самий проєкт може бути stack.
-
-На Raspberry Pi з мікрофоном і динаміком той самий проєкт може бути voice/audio:
-
-```text
-агент слухає -> агент діє -> агент звітує
-```
-
-Проєкт той самий. Змінюється тільки спосіб взаємодії.
-
-Це робить Nova Station ширшою за операційну систему для ноутбука.
-
-Та сама project/outlet модель може працювати для:
-
-- ноутбуків і desktop-комп'ютерів;
-- телефонів і планшетів;
-- автомобілів;
-- smart home;
-- entertainment systems;
-- voice-only devices;
-- embedded nodes та appliances.
-
-Замість apps, folders і desktops Nova Station організовує контекст навколо Projects:
-
-- Work Project;
-- Home Project;
-- Entertainment Project;
-- Car Project;
-- Presentation Project.
-
-Кожен project може мати свої outlets і routing policies. Якщо активний Work Project не має media outlet, Station може прямо сказати це і запропонувати тимчасово додати outlet, перемкнутись в Entertainment/Home Project, поставити media в queue або перейти в audio/text.
-
-## Agent-first
-
-Nova Station - це не чатик збоку робочого столу.
-
-Агенти є учасниками системи.
-
-Вони бачать стан проєкту, події, логи, outputs і презентації. Вони можуть підсумовувати, пропонувати дії, просити підтвердження і доставляти результат туди, де він потрібен.
-
-## Typed Objects та Outlets
-
-Програми стають executable Typed Objects.
-
-Вони описують, що приймають, що повертають, що вміють, які дозволи потребують і чи є deterministic.
-
-Програми повертають meaningful objects:
+Programs і connectors повертають Typed Objects:
 
 ```text
 CodeBlock
 MediaRef
 ChatMessage
-Alert
-MetricSample
+Notification
 CommandResult
 StatePatchProposal
 ```
 
-Nova Station вирішує, куди ці об'єкти доставити: board, телефон, speaker, agent summary або кілька місць одразу.
+Station вирішує, куди ці objects доставити.
 
-Але багато того, що ми зараз називаємо apps, має стати меншим за apps.
+App більше не володіє кожним interface. Station володіє delivery policy.
 
-YouTube-like сервіси не мають потребувати повну GUI-shell, якщо Station уже має media outlets, feed outlets, media controls, agents і connector, який дає videos та playback references.
+Якщо outlet немає, система не ламається. Video reference без media outlet може стати text summary, audio-only playback, queued item або compatibility surface.
 
-GitHub-like сервіси не мають володіти всім developer interface, якщо Station уже має code viewers/editors, logs, status, notifications, agents і connector, який дає repositories, issues, checks, files та actions.
+Object лишається валідним. Недоступний лише поточний presentation route.
 
-IDE-like apps теж мають стати меншими.
+## Один account, багато devices
 
-Класична IDE збирає editor, terminal, logs, debugger, Git UI, test runner, language tools, AI assistant, notifications і layout shell в одну важку app. Nova Station має розкласти це на сфокусовані outlets та connectors:
+Nova Station не тільки для laptops.
 
-```text
-IDE
-    -> code editor outlet
-    -> language/tool connectors
-    -> build/test/log/status outlets
-    -> Git/source-hosting connector
-    -> terminal/command outlet
-    -> AI agents
-    -> project state
-```
+Один account може координувати багато Station Runtime nodes:
 
-Editor редагує код. Project є середовищем.
+- laptop;
+- phone;
+- tablet;
+- car;
+- TV;
+- smart home hub;
+- speaker;
+- server;
+- embedded device.
 
-У цій моделі багато класичних apps розчиняються в:
+Це не remote desktop. Devices не мають стрімити один screen всюди.
 
-```text
-service connector
-    + Typed Objects
-    + agents
-    + system outlets
-    + project routing policy
-```
+Вони ділять Station-owned state і object references. Кожен device показує або контролює те, для чого він найкращий.
 
-Результат: менше дубльованого UI-коду, менше зайвої runtime-ваги і чистіша системна модель.
+## Memory And Replay
 
-Це також природно паралелиться на різні пристрої: ноутбук показує board, телефон дає controls, планшет показує logs, speaker бере audio. Не треба стрімити весь desktop всюди.
-
-Економія ресурсів тут структурна: менше дубльованих app-shells, менше дубльованих media/chat/feed/notification систем, менше desktop video streaming, менше background mini-platforms і більше reuse спільних system outlets.
-
-Якщо потрібного outlet зараз немає, система не має ламатися. Video reference без media outlet може стати text summary, audio-only playback, queued item або compatibility surface. Об'єкт лишається валідним; змінюється тільки presentation.
-
-## Time Machine
-
-Стан Nova Station event-sourced:
+State Nova Station event-sourced:
 
 ```text
 snapshot + ordered event log = deterministic state
 ```
 
-Це дає restore, replay, branch з попереднього стану, пояснення змін і майбутню синхронізацію між машинами.
+Це дає restore, replay, explanation, branch з попереднього state і майбутній sync між machines.
 
-AI-результати не переобчислюються на replay. Прийняті non-deterministic результати записуються як events/artifacts.
+AI та інші non-deterministic results записуються як events/artifacts. Replay відновлює accepted results, а не питає model знову.
+
+## Compatibility
+
+Classic apps ще потрібні.
+
+Firefox, terminals, editors, GTK/Qt apps і старі windows стають compatibility surfaces всередині Project Presentations.
+
+Compositor важливий.
+
+Але це infrastructure.
+
+Це не product metaphor.
 
 ## Чому це важливо
 
-Наступне personal computing environment - це не просто кращий desktop.
+Desktop був створений для apps.
 
-Це project-first, agent-first Station для роботи, дому, медіа, мобільності і connected devices.
+Nova Station створюється для projects, agents, devices і continuity.
 
-Якщо це спрацює, apps більше не мають володіти кожним інтерфейсом, projects не розчиняються у вікнах і табах, agents не працюють через side-channel, а state не зникає у live process memory.
+Якщо це спрацює, upside - не чистіший desktop.
 
-Багато класичних app-shells можуть просто зникнути, розчинившись у connectors та outlets.
+Upside - нова категорія operating environment, де:
 
-Потенційний upside - це не "трошки зручніший desktop".
-
-Потенційний upside - це нова категорія: AI-native operating environment, де проєкти довговічні, агенти нативні, пристрої є outlets, а система пам'ятає, як саме відбувалася робота.
+- Projects довговічні;
+- agents native;
+- devices є outlets;
+- apps розчиняються в connectors і focused capabilities;
+- state можна replay/recover;
+- система пам'ятає, як відбувалась робота.
