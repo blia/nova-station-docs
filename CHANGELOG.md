@@ -10,6 +10,8 @@ Added public notes for the Station Core Runtime:
 
 - Typed Objects as clean values plus Station reflection metadata;
 - ProgramObjects as executable typed objects;
+- source-event-driven runtime flow, not only user input;
+- Station invocation of executable object references instead of embedding `exec` in clean payloads;
 - execution classes: pure, deterministic, effectful, and AI;
 - event-sourced state with replay rules;
 - JSON Lines as the first planned local event log format;

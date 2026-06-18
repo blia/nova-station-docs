@@ -17,10 +17,10 @@ That means the same project model should eventually work through:
 The first runtime target is:
 
 ```text
-input outlet
-    -> agent intent
+system element / source event
+    -> optional agent intent
     -> ProgramObject selection
-    -> typed invocation
+    -> Station invocation of executable object reference
     -> Typed Object output
     -> Station validation/event
     -> reducer/projection
@@ -29,6 +29,8 @@ input outlet
 ```
 
 This is deliberately not a desktop/window-manager flow.
+
+It also does not have to start from user input. A runtime flow can start from system startup, sync, schedule, repository changes, network events, hardware events, agent observations, or user input.
 
 ## Typed Objects
 
@@ -63,6 +65,14 @@ Programs are not primarily GUI apps in this model.
 
 A ProgramObject is an executable typed object. It declares what it accepts, what it emits, and whether it is safe to replay.
 
+Because object values stay clean, execution is invoked by Station through object references and reflection metadata. Conceptually:
+
+```text
+exec_object_ref(object_ref, invocation, context)
+```
+
+The executable behavior is not embedded directly into the clean payload.
+
 Initial execution classes:
 
 - `pure`: same input and version always produce the same output;
@@ -96,7 +106,7 @@ It should prove:
 input text
     -> stub agent
     -> selected ProgramObject
-    -> execution
+    -> Station invocation of executable object reference
     -> typed output
     -> event
     -> reducer
