@@ -6,6 +6,26 @@ The most useful help right now is attention, feedback, reality checks, basic res
 
 This is not a polished product launch. It is an early project asking for the right kind of support.
 
+## What I Do Not Need Right Now
+
+The most expensive resources are time, architectural thinking, planning, and core development.
+
+For now, I am taking those on myself.
+
+I am not looking for random planning help, random feature PRs, or people to take over technical direction while the project is still in the design/MVP stage.
+
+What I need most is everything around that core work:
+
+- reality checks;
+- attention;
+- sharing;
+- hardware;
+- test devices;
+- compute resources;
+- audio/video setup;
+- sponsorship;
+- people willing to read, ask, and react honestly.
+
 ## Simple Public Support
 
 If the idea resonates:
@@ -96,6 +116,27 @@ Useful resources:
 - hardware where Linux/Wayland/compositor experiments can run better than on the current Android VM.
 
 The current development environment is constrained. Extra compute can unblock experiments.
+
+## Hardware / Outlet Test Devices
+
+Nova Station is built around outlets and presentations, not just one desktop screen.
+
+That means a lot of physical devices may become useful for testing:
+
+- old phones;
+- tablets;
+- small displays;
+- webcams;
+- microphones;
+- speakers;
+- audio adapters;
+- Raspberry Pi / mini PCs;
+- USB input devices;
+- touch screens;
+- gamepads / controllers;
+- random hardware that can act as input or output.
+
+Something that is useless or unused for you may be exactly the kind of outlet device I need for experiments.
 
 ## Useful Expertise
 

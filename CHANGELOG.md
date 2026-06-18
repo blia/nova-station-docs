@@ -6,6 +6,7 @@ This changelog is curated. It is not a raw commit log.
 
 Updated the public help page with concrete ways people can support the project now:
 
+- clarified that planning/core development are not the main help needed right now;
 - star/watch/share the repository;
 - send the idea to people who may understand it;
 - give feedback and reality checks;
@@ -13,6 +14,7 @@ Updated the public help page with concrete ways people can support the project n
 - help with video/audio equipment;
 - provide financial support;
 - share compute/model resources;
+- share hardware/outlet test devices;
 - offer relevant expertise.
 
 Why it matters:
