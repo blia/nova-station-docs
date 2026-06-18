@@ -31,6 +31,8 @@ Added graceful fallback note: if a connector returns an object but no suitable o
 
 Added broader device-class note: the same project/outlet model should apply to laptops, phones, cars, smart homes, entertainment systems, voice-only devices, and embedded nodes. Projects become the organizing context across devices.
 
+Added IDE dissolution example: IDE-like apps should split into focused code editor outlets, language/tool connectors, build/test/log/status outlets, Git/source-hosting connectors, terminal/command outlets, AI agents, and project state.
+
 ## 2026-06-18: How To Help Updated
 
 Updated the public help page with concrete ways people can support the project now:

@@ -33,6 +33,7 @@ Examples:
 
 - media services route videos to media/feed/control outlets;
 - source-hosting services route code, issues, checks, files, and notifications to code/status/log/notification outlets;
+- IDE-like tools split into code editor outlets, language/tool connectors, build/test/log/status outlets, Git/source-hosting connectors, terminal/command outlets, and AI agents;
 - chat services route conversations, media references, notifications, and agent summaries to shared chat/media/notification outlets.
 
 Benefits:

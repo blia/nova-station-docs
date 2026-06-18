@@ -110,6 +110,23 @@ YouTube-like services should not need a full GUI shell if Station already has me
 
 GitHub-like services should not need to own the whole developer interface if Station already has code viewers/editors, logs, status, notifications, agents, and a connector that exposes repositories, issues, checks, files, and actions.
 
+IDE-like apps should also shrink.
+
+A classic IDE bundles editor, terminal, logs, debugger, Git UI, test runner, language tools, AI assistant, notifications, and layout shell into one heavy app. Nova Station should split that into focused outlets and connectors:
+
+```text
+IDE
+    -> code editor outlet
+    -> language/tool connectors
+    -> build/test/log/status outlets
+    -> Git/source-hosting connector
+    -> terminal/command outlet
+    -> AI agents
+    -> project state
+```
+
+The editor edits code. The project is the environment.
+
 In this model, many traditional apps dissolve into:
 
 ```text

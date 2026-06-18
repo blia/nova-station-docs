@@ -112,6 +112,23 @@ YouTube-like сервіси не мають потребувати повну GU
 
 GitHub-like сервіси не мають володіти всім developer interface, якщо Station уже має code viewers/editors, logs, status, notifications, agents і connector, який дає repositories, issues, checks, files та actions.
 
+IDE-like apps теж мають стати меншими.
+
+Класична IDE збирає editor, terminal, logs, debugger, Git UI, test runner, language tools, AI assistant, notifications і layout shell в одну важку app. Nova Station має розкласти це на сфокусовані outlets та connectors:
+
+```text
+IDE
+    -> code editor outlet
+    -> language/tool connectors
+    -> build/test/log/status outlets
+    -> Git/source-hosting connector
+    -> terminal/command outlet
+    -> AI agents
+    -> project state
+```
+
+Editor редагує код. Project є середовищем.
+
 У цій моделі багато класичних apps розчиняються в:
 
 ```text
