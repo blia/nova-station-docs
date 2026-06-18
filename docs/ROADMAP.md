@@ -25,11 +25,15 @@ This is a public summary, not the full internal roadmap.
 - Keep rendering backend-agnostic.
 - Prototype Board and Stack presentations.
 - Explore Voice/Audio presentation.
+- Prototype local appliance profiles and outlet repository manifests.
+- Build an English Tutor profile demo for a voice/audio-only Station node.
 
 ## Later
 
 - Sync/restore backend.
 - Multi-node Station Runtime.
+- Versioned outlet/connector repositories.
+- Purpose-built Station appliance profiles.
 - Agent observation over event streams.
 - Public devlogs/changelog.
 - Vulkan/other rendering backend when platform support is realistic.

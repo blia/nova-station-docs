@@ -10,10 +10,11 @@ That means the same project model should eventually work through:
 - a phone stack layout;
 - a terminal/log outlet;
 - a browser compatibility surface;
-- a microphone and speaker with no GUI at all.
+- a microphone and speaker with no GUI at all;
 - a car audio/navigation interface;
 - a smart home outlet graph;
 - an entertainment/media device.
+- a purpose-built appliance profile, such as an English tutor node with only microphone and speaker.
 
 ## Core Flow
 
@@ -121,6 +122,33 @@ The demo will likely include:
 - a pure text transform program for replay-safe tests;
 - an effectful shell command program that records stdout, stderr, and exit code;
 - text/error/debug outlets.
+
+## Appliance Profile Target
+
+The same core should eventually boot a purpose-built Station node from a declarative profile:
+
+```text
+profile
+    -> default Project
+    -> physical outlets
+    -> software outlets
+    -> connectors
+    -> agents/models
+    -> routing policy
+```
+
+Example:
+
+```text
+English Tutor
+    -> microphone + speaker
+    -> voice/audio outlet
+    -> English tutor agent
+    -> audiobook/audio connector
+    -> English Learning Project
+```
+
+This proves that Nova Station is not only a visual computer shell. It can also become a small dedicated device while using the same Project state, event log, Typed Objects, routing, and outlet model.
 
 ## Graceful Missing Outlets
 

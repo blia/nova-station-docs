@@ -123,6 +123,8 @@ This is not remote desktop. Devices do not need to stream one screen everywhere.
 
 They share Station-owned state and object references. Each device presents or controls the parts it is good at.
 
+Some nodes can be purpose-built appliances. A Raspberry Pi with only microphone and speaker can boot as an English Tutor: voice/audio outlet, tutor agent, audio connectors, and an English Learning Project that remembers audiobooks, playback position, questions, corrections, and progress.
+
 ## Memory And Replay
 
 Nova Station state is event-sourced:

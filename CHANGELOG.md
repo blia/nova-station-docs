@@ -37,6 +37,8 @@ Refined positioning: Nova Station is now described as a project-first AI operati
 
 Rewrote the public README, Pitch, and Vision documents as single coherent narratives instead of incremental updates. The new structure starts from the old app/window model, moves to Projects, then explains outlets, application dissolution, multi-device operation, event-sourced memory, compatibility, and why the Station Core Runtime comes first.
 
+Added Station Appliance Profiles: a purpose-built node can be assembled from a core runtime binary, declarative profile config, outlet repository entries, connectors, model/agent config, and a default Project template. First motivating example: an English Tutor node on Raspberry Pi with microphone/speaker outlets, voice/audio outlet, tutor agent, audio connectors, and persistent English Learning Project state.
+
 ## 2026-06-18: How To Help Updated
 
 Updated the public help page with concrete ways people can support the project now:

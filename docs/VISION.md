@@ -142,6 +142,29 @@ Examples:
 
 The same account and Project can coordinate all of them.
 
+## Appliance Profiles
+
+Some Station nodes can be purpose-built.
+
+Instead of installing a generic desktop, a device can be assembled from:
+
+```text
+core runtime binary
+    -> profile config
+    -> outlet repository
+    -> connectors
+    -> models/agents
+    -> default Project template
+```
+
+Example: an English Tutor device on Raspberry Pi.
+
+It may have only a microphone and speaker. Its profile installs a voice/audio outlet, English tutor agent, audio/audiobook connectors, and an `English Learning` Project.
+
+It can remember audiobooks, playback position, questions, corrections, vocabulary progress, and lesson history.
+
+The same Project can later be presented on a laptop, phone, car, or other Station node if suitable outlets exist.
+
 ## Memory And Replay
 
 Nova Station state is event-sourced:

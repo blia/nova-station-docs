@@ -123,6 +123,8 @@ Nova Station не тільки для laptops.
 
 Вони ділять Station-owned state і object references. Кожен device показує або контролює те, для чого він найкращий.
 
+Деякі nodes можуть бути purpose-built appliances. Raspberry Pi тільки з мікрофоном і speaker може стартувати як English Tutor: voice/audio outlet, tutor agent, audio connectors і English Learning Project, який пам'ятає аудіокниги, playback position, питання, corrections і progress.
+
 ## Memory And Replay
 
 State Nova Station event-sourced:

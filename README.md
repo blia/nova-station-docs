@@ -63,6 +63,7 @@ Examples:
 - A speaker can become voice input and audio output.
 - A car can expose navigation, warnings, audio, calls, and voice interaction.
 - A Raspberry Pi with only microphone and speaker can still participate through audio/voice agents.
+- A dedicated learning device can boot directly into an English Tutor Project through a voice/audio appliance profile.
 
 The Project is the same. The presentation changes.
 
@@ -115,6 +116,7 @@ The object remains valid. Only the current presentation route is unavailable.
 - [Pitch](docs/PITCH.md)
 - [Pitch in Ukrainian](docs/PITCH.uk.md)
 - [Vision](docs/VISION.md)
+- [Station Appliance Profiles](docs/APPLIANCE_PROFILES.md)
 - [Station Core Runtime](docs/CORE_RUNTIME.md)
 - [Roadmap](docs/ROADMAP.md)
 - [How To Help](docs/HOW_TO_HELP.md)
