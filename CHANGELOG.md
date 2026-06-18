@@ -2,6 +2,23 @@
 
 This changelog is curated. It is not a raw commit log.
 
+## 2026-06-18: How To Help Updated
+
+Updated the public help page with concrete ways people can support the project now:
+
+- star/watch/share the repository;
+- send the idea to people who may understand it;
+- give feedback and reality checks;
+- follow future changelog/devlog updates;
+- help with video/audio equipment;
+- provide financial support;
+- share compute/model resources;
+- offer relevant expertise.
+
+Why it matters:
+
+Nova Station needs a feedback loop with real people. At this stage, help is not only code. Attention, questions, hardware, compute, and moral support are all useful.
+
 ## 2026-06-18: Public Docs Start
 
 Initial public documentation repository created.
