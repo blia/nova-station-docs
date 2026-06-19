@@ -119,6 +119,7 @@ The object remains valid. Only the current presentation route is unavailable.
 - [Station Appliance Profiles](docs/APPLIANCE_PROFILES.md)
 - [Station Core Runtime](docs/CORE_RUNTIME.md)
 - [Devlog / Channel](docs/DEVLOG.md)
+- [Telegram channel](https://t.me/nova_station_channel) - Ukrainian updates
 - [Roadmap](docs/ROADMAP.md)
 - [How To Help](docs/HOW_TO_HELP.md)
 - [Changelog](CHANGELOG.md)

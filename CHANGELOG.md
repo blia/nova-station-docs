@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-06-19: Telegram Channel
+
+- Linked the public Nova Station Telegram channel.
+- Clarified that repository devlog posts remain bilingual while Telegram currently publishes Ukrainian only.
+
 This changelog is curated. It is not a raw commit log.
 
 ## 2026-06-19: Public Bilingual Devlog Channel

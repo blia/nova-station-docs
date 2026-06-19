@@ -2,7 +2,9 @@
 
 Public updates about what is being designed and built in Nova Station.
 
-This is the repository-native channel for now. Later, the same posts can be republished to Telegram or other public channels.
+This repository keeps Ukrainian and English versions of every public post.
+
+The [Nova Station Telegram channel](https://t.me/nova_station_channel) currently publishes the Ukrainian versions only.
 
 ## Posts
 
