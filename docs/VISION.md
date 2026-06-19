@@ -4,9 +4,11 @@ Project-first AI operating environment.
 
 Be focused.
 
-Nova Station is not a nicer desktop and not a chatbot attached to old windows.
+## Thesis
 
-It is a different operating-system thesis:
+Nova Station is not a desktop redesign, window manager, launcher, or chatbot attached to existing applications.
+
+It starts from a different hierarchy:
 
 ```text
 not apps first
@@ -19,92 +21,82 @@ agents first
 outlets by role
 ```
 
-The product model is a Station: one project context, many devices, many outlets, coordinated through state.
+The goal is an operating environment where the Project is the durable unit, agents are native participants, devices contribute explicit capabilities, and presentation adapts to context.
 
-## The Shift
+## The Human Problem
 
-Classic systems start from desktops, applications, windows, tabs, and device-local sessions.
+Consider parallel API and frontend work.
 
-Nova Station starts from Projects.
+Both contexts are spread across terminal tabs, browser tabs, code editors, logs, tasks, chats, and agents. The operating system sees processes and windows. The user remembers which pieces form each Project and reconstructs the context manually.
 
-A Project is not a folder or group of windows. It is a living context:
+Nova Station treats that missing Project context as a system responsibility.
 
-- state;
-- history;
-- agents;
-- connectors;
-- typed objects;
-- outlets;
-- device roles;
-- logs;
-- media;
-- code;
-- notifications;
-- restore points.
+API and frontend can be separate Projects even when they reuse the same tools. Switching Project restores the relevant code, logs, browser content, tasks, agents, status, outlet roles, and presentation.
 
-The user should not boot into an empty desktop. The user should enter a Command Center, choose a Project, and continue from the real state of that work.
+The user chooses the work. Station restores the environment around it.
 
-## Presentation Is Not GUI
-
-GUI is one presentation mode, not the system itself.
-
-The same Project can be presented as:
-
-- a board on a large monitor;
-- a focused stack on a phone;
-- audio and voice in a car;
-- sensors, media, and routines in a smart home;
-- a voice-only session on a small device;
-- compatibility surfaces for old apps.
-
-The Project is the same. The presentation changes according to available outlets.
-
-## Applications Dissolve
-
-Many traditional apps are too large because they bundle unrelated responsibilities:
+## Product Model
 
 ```text
-service access
-data fetching
-editing
-media playback
-chat
-notifications
-search
-layout
-settings
-device handling
+Station -> Command Center -> Project -> Presentation -> Outlets
+                         Agents alongside every level
 ```
 
-Nova Station separates those responsibilities.
+**Station** coordinates identity, nodes, Projects, policies, objects, events, and global capabilities.
 
-The system should provide shared outlets for common human-facing roles:
+**Command Center** summarizes Projects and helps the user decide where attention is needed.
 
-- media;
-- short-form feeds;
-- chat;
-- AI conversation;
-- code viewing;
-- code editing;
-- documents;
-- notifications;
-- logs/status;
-- commands;
-- voice/audio.
+**Project** is an isolated living context with state, history, agents, connectors, typed objects, tasks, code, media, logs, notifications, device roles, and restore points.
 
-External services become connectors or descriptors. They expose typed capabilities instead of bringing a full GUI shell.
+**Presentation** turns Project state into a context-appropriate experience. It may be visual, audio, spatial, embedded, or mixed.
 
-YouTube-like services return media references and playback controls.
+**Outlets** are role-capable endpoints. They can display, edit, speak, listen, notify, control hardware, host legacy surfaces, accept input, or perform another focused role.
 
-GitHub-like services return repositories, issues, files, checks, notifications, and actions.
+Agents are cross-cutting participants. They are not a leaf node or a single chat window.
 
-IDE-like tools split into code editor outlets, language/tool connectors, build/test/log/status outlets, Git/source-hosting connectors, terminal/command outlets, agents, and Project state.
+## Projects Are Not Workspaces
 
-The editor edits code. The Project is the environment.
+A Project is not defined by a directory, repository, application set, or display layout.
 
-## Typed Objects And Routing
+Those things can belong to a Project, but none of them is the Project itself.
 
-Programs and connectors emit Typed Objects:
+A Project owns or references:
+
+- durable state and ordered history;
+- accepted outputs and artifacts;
+- agents, permissions, and memory;
+- connectors and executable capabilities;
+- typed objects and tasks;
+- presentation and routing policy;
+- device and outlet assignments;
+- restore points and synchronization state.
+
+This makes a Project portable across presentations and machines without pretending that arbitrary process memory can be moved perfectly.
+
+## Native Agents
+
+Agents should understand Project state directly instead of inferring it from a screenshot or pile of windows.
+
+An agent may:
+
+- observe permitted Project events and task progress;
+- summarize status at Command Center or Project level;
+- select a connector or ProgramObject;
+- propose a state change;
+- request approval;
+- start an allowed invocation;
+- interpret and route results;
+- explain provenance, failures, and uncertainty.
+
+Work does not have to begin in chat. A source event may come from user input, system startup, schedule, repository change, synchronization, network activity, hardware, or another agent observation.
+
+Observation does not automatically grant authority. Permissions, approval policy, invocation lifecycle, and accepted state changes remain explicit.
+
+## Typed Objects And Programs
+
+Programs and connectors exchange self-describing Typed Objects rather than owning every interface.
+
+Examples include:
 
 ```text
 CodeBlock
@@ -112,138 +104,229 @@ MediaRef
 ChatMessage
 Notification
 CommandResult
+ArtifactRef
 StatePatchProposal
+ProgramObject
 ```
 
-Station decides where those objects go.
+Station knows or can restore metadata describing type, version, roles, capabilities, provenance, permissions, methods, agent-readable meaning, and replay behavior.
 
-The app does not own every interface. Station owns delivery policy.
+A ProgramObject is an executable Typed Object reference. It declares accepted inputs, emitted outputs, execution class, permissions, and requirements.
 
-If an outlet is missing, the system should not break. A video reference without a media outlet can become a text summary, audio-only playback, queued item, temporary outlet request, project switch, or compatibility surface.
+Programs do not mutate Project state directly. They return objects, artifacts, results, or patch proposals. Station validates and accepts events through the Project state boundary.
 
-The object remains valid. Only the current presentation route is unavailable.
+## Two Routing Decisions
 
-## One Account, Many Devices
+Nova Station separates execution placement from result delivery.
+
+### Execution Placement
+
+Station decides where a ProgramObject should run based on capabilities, permissions, policy, load, network context, installed models or connectors, and availability.
+
+The interaction device is not automatically the executor.
+
+```text
+phone request
+    -> trusted GPU workstation executes image generation
+    -> ImageObject / ArtifactRef enters Project state
+```
+
+Station may use the local node, a stronger remote node, a queue, degraded local execution, or several nodes in parallel.
+
+### Delivery Routing
+
+After output is validated and accepted, Station decides where it should go based on object roles, Project policy, current context, and outlet capabilities.
+
+```text
+accepted ImageObject
+    -> preview on phone
+    -> full image on tablet or TV
+    -> artifact retained in Project history
+```
+
+The source node, executor node, and delivery outlet can all be different.
+
+## Work Is Asynchronous
+
+Real work takes time. Models think, builds run, media is processed, remote nodes queue, and several tasks may finish in a different order than they started.
+
+Program execution is therefore an asynchronous task lifecycle at the Station level:
+
+```text
+requested
+    -> accepted or rejected
+    -> placed
+    -> started
+    -> progress / logs / output chunks / artifacts
+    -> succeeded / failed / canceled / timed out
+    -> result accepted
+```
+
+Durable Project state stores invocation identity, status, provenance, progress, accepted outputs, cancellation, timeout, and lifecycle events. Local runtime handles are implementation details.
+
+This model supports immediate work, long-running work, streaming, retries, remote execution, parallel execution, and late results without turning the UI into the source of truth.
+
+## Presentation Is Not GUI
+
+One Project can have several presentations at the same time:
+
+- a Board on a large monitor with multifocus and focused regions;
+- a Stack on a small touch screen;
+- voice/audio through microphone and speaker;
+- a presenter view and a separate audience display;
+- a TV media outlet with phone controls;
+- a car presentation prioritizing navigation, warnings, audio, and voice;
+- a smart-home context for sensors, routines, cameras, media, and notifications;
+- a spatial presentation in VR;
+- compatibility surfaces for existing software.
+
+Presentation consumes stable Project projections. It does not own durable Project state.
+
+## Devices Are Runtime Nodes With Roles
 
 Nova Station is not remote desktop.
 
-Devices should not stream one screen everywhere.
-
-Each Station Runtime node can sync state/object references, advertise outlets, and take roles.
+Each capable computer or device can run a Station Runtime node, synchronize Station-owned state and object references, advertise capabilities, and receive roles.
 
 Examples:
 
-- laptop: main board and keyboard/touchpad input;
-- phone: controls, approvals, virtual keyboard, secondary viewer;
+- laptop: Board, keyboard, touchpad, local execution;
+- phone: Stack, microphone, approval surface, virtual keyboard, controls;
+- workstation: GPU or build executor;
 - TV: media outlet;
-- speaker: audio output and voice input;
-- car: navigation, warnings, audio, calls;
-- smart home hub: sensors, routines, media, notifications.
+- speaker: voice input and audio output;
+- home hub: sensors and hardware control;
+- server: durable services or compute;
+- embedded node: focused hardware role.
 
-The same account and Project can coordinate all of them.
+There is no required primary host. There is only the node through which the user is interacting now, plus other nodes available to the Project.
 
-## Appliance Profiles
+## Applications Dissolve Into Capabilities
 
-Some Station nodes can be purpose-built.
+Many applications bundle service access, data fetching, editing, media playback, chat, notifications, search, layout, settings, and device handling into isolated UI shells.
 
-Instead of installing a generic desktop, a device can be assembled from:
+Nova Station separates service capability from presentation.
 
-```text
-core runtime binary
-    -> profile config
-    -> outlet repository
-    -> connectors
-    -> models/agents
-    -> default Project template
-```
+YouTube-like services can expose media references, search, channels, recommendations, and playback controls.
 
-Example: an English Tutor device on Raspberry Pi.
+GitHub-like services can expose repositories, files, issues, pull requests, checks, actions, and notifications.
 
-It may have only a microphone and speaker. Its profile installs a voice/audio outlet, English tutor agent, audio/audiobook connectors, and an `English Learning` Project.
+Chat services can expose conversations, messages, media references, and notification events.
 
-It can remember audiobooks, playback position, questions, corrections, vocabulary progress, and lesson history.
+An IDE can decompose into a focused editor, language and debugger connectors, build/test/log/status outlets, source-hosting connector, terminal commands, agents, and Project state.
 
-The same Project can later be presented on a laptop, phone, car, or other Station node if suitable outlets exist.
+This does not mean every existing application vanishes. It means a full application shell is no longer the only way to contribute useful capability.
 
-## Memory And Replay
+## Missing Outlets Degrade Gracefully
 
-Nova Station state is event-sourced:
+A user asks for the latest video from a channel they follow. A connector returns a valid `MediaRef`, but the current Work Project has no video outlet.
+
+Station can keep the object and offer:
+
+- text summary;
+- audio-only playback;
+- queue for later;
+- temporary media outlet;
+- switch to an Entertainment or Home Project;
+- compatibility surface.
+
+The connector succeeded. The object remains valid. Only the current presentation route is unavailable.
+
+This rule generalizes: unknown or temporarily unhandled Typed Objects should remain safe, explainable, and available for later routing.
+
+## Memory, Replay, And Sync
+
+Nova Station-owned state is immutable and event-sourced:
 
 ```text
 snapshot + ordered event log + artifacts = reconstructed state
 ```
 
-That enables restore, replay, explanation, branching, and future sync across machines.
+This enables:
 
-Pure deterministic work can be replayed.
+- restore on another machine;
+- explanation and audit history;
+- Time Machine-style rollback;
+- branching from an earlier state;
+- synchronization across nodes;
+- agent accountability.
 
-Effectful work records outputs.
+Pure deterministic work may be recomputed when versions and inputs are pinned.
 
-AI results are recorded as accepted artifacts/events instead of being recomputed during replay.
+Effectful commands, external service calls, and AI outputs are recorded as accepted events or artifacts. Replay restores the accepted result instead of repeating the effect or asking a model again.
 
-## Compatibility
+Nova Station synchronizes state it owns. It does not promise to preserve live Linux process memory, sockets, GPU buffers, or arbitrary application internals.
 
-Classic applications still matter.
+The intended model is network-first and local-capable: global restore and synchronization are primary, while cached local work can continue in a degraded offline mode and synchronize later.
 
-Firefox, terminals, editors, GTK/Qt apps, and legacy windows become compatibility surfaces inside Project Presentations.
+## Appliance Profiles
 
-The compositor is important infrastructure.
+The same Station Core can power purpose-built devices through declarative profiles.
 
-It is not the product metaphor.
+An English Tutor profile on Raspberry Pi can combine:
 
-## Rendering Direction
+- microphone and speaker;
+- voice/audio outlet;
+- tutor agent and model configuration;
+- audiobook, dictionary, and translation connectors;
+- persistent English Learning Project.
 
-Visual rendering should be backend-agnostic:
+The Project remembers playback position, questions, corrections, vocabulary, and lesson history. It can later continue through a laptop, phone, or car presentation.
+
+The device is focused. The core model remains general.
+
+## Compatibility And Rendering
+
+Existing software remains essential during transition.
+
+Firefox, terminals, editors, GTK/Qt applications, and other legacy surfaces can run inside Project Presentations through compositor-backed compatibility infrastructure.
+
+The compositor hosts surfaces. It must not become the owner of Project or agent state.
+
+Visual rendering should remain backend-agnostic:
 
 ```text
-Project/View Projection
-    -> UI Engine
+Project projection
+    -> UI engine
     -> Scene / DisplayList
-    -> Render Graph Builder
+    -> Render Graph
     -> Backend Command Stream
-    -> OpenGL ES backend now
-    -> Vulkan / Metal / other backend later
+    -> graphics backend
 ```
 
-The current prototype uses OpenGL ES because the development environment is an Android ARM Linux VM with virgl.
-
-The architecture should not depend on OpenGL-specific UI code.
+Non-visual presentations bypass the visual rendering path entirely.
 
 ## Current Technical Priority
 
-Nova Station should move core-first, not compositor-first.
+The immediate goal is a headless Station Core Runtime proof before deeper visual work.
 
-The next proof point is Station Core Runtime:
+It should demonstrate:
 
-- Typed Objects;
-- executable object references;
-- reflection metadata;
-- event log;
-- artifact store;
-- immutable state patches;
-- routing policy;
-- pure/effectful/AI execution classes;
-- graceful outlet fallback;
-- headless runtime flow;
-- visual/audio/compatibility projections.
+- Typed Object descriptors and reflection metadata;
+- ProgramObject invocation contracts;
+- Station Runtime node and execution capability descriptors;
+- execution placement policy;
+- asynchronous invocation lifecycle;
+- event log and artifact store;
+- immutable reducer and projection;
+- delivery routing and graceful fallback;
+- stub agent selection;
+- deterministic and effectful demo programs;
+- text/log/debug outlets.
 
-The compositor remains important, but it should serve presentation and compatibility.
+The first proof can execute locally while preserving contracts for future multi-node execution.
 
-The core system must also work without GUI.
+## Product Guardrails
 
-## Why It Matters
+Nova Station should not become:
 
-The desktop was built for apps.
+- a classic desktop with AI decoration;
+- a launcher for the same application silos;
+- a window manager presented as an operating-system revolution;
+- a remote-desktop product that streams one screen everywhere;
+- an agent with unrestricted access and hidden side effects;
+- a promise to replace the entire software ecosystem immediately.
 
-Nova Station is being built for projects, agents, devices, and continuity.
+The measure of progress is whether Projects become more durable, agents more accountable, devices more composable, execution and delivery more flexible, and human attention less fragmented.
 
-If this works, the result is not a cleaner desktop.
-
-It is a new category of operating environment where:
-
-- Projects are durable;
-- agents are native;
-- devices are outlets;
-- apps dissolve into connectors and focused capabilities;
-- state can be replayed and restored;
-- the system remembers how work happened.
+Read the [Stories](STORIES.md), [Station Core Runtime](CORE_RUNTIME.md), [Appliance Profiles](APPLIANCE_PROFILES.md), or [Public Roadmap](ROADMAP.md).

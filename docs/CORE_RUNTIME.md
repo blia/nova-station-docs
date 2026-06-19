@@ -2,182 +2,213 @@
 
 Nova Station is moving core-first.
 
-The compositor and visual shell are still important, but they are not the center of the system. They are visual presentation backends. The core of Nova Station is a runtime that can understand project state, invoke programs, record events, route typed results, and present work through any available outlet.
+The first serious proof is not another shell screen or window effect. It is a headless runtime that can understand a Project, invoke a capability, track asynchronous work, record accepted results, and route them to available outlets.
 
-That means the same project model should eventually work through:
+The compositor remains important visual and compatibility infrastructure. It is not the state or execution core.
 
-- a large visual board;
-- a phone stack layout;
-- a terminal/log outlet;
-- a browser compatibility surface;
-- a microphone and speaker with no GUI at all;
-- a car audio/navigation interface;
-- a smart home outlet graph;
-- an entertainment/media device.
-- a purpose-built appliance profile, such as an English tutor node with only microphone and speaker.
-
-## Core Flow
-
-The first runtime target is:
+## Canonical Flow
 
 ```text
-system element / source event
-    -> optional agent intent
+source event
+    -> Station Runtime
+    -> Project context
+    -> optional agent interpretation
     -> ProgramObject selection
-    -> Station invocation of executable object reference
-    -> Typed Object output
-    -> Station validation/event
-    -> reducer/projection
-    -> routing to compatible outlets
-    -> presentation through any available modality
+    -> execution placement
+    -> asynchronous invocation lifecycle
+    -> Typed Objects / artifacts / progress / errors
+    -> Station validation and acceptance
+    -> event log
+    -> reducer and projection
+    -> delivery routing
+    -> compatible outlet or graceful fallback
 ```
 
-This is deliberately not a desktop/window-manager flow.
+A flow can begin with user input, schedule, repository change, synchronization, network event, hardware signal, system startup, or agent observation.
 
-It also does not have to start from user input. A runtime flow can start from system startup, sync, schedule, repository changes, network events, hardware events, agent observations, or user input.
+Agent interpretation is optional. State acceptance and routing remain Station responsibilities.
 
-## Typed Objects
+## Runtime Contracts
 
-Nova Station treats work as typed objects.
+### Project State
 
-A Typed Object is not just a blob of text and not necessarily a GUI widget. It is a clean value plus Station-owned reflection metadata.
+Project state is immutable and changes through accepted events or patches.
 
-Example object value:
+The runtime must be able to reconstruct it from a snapshot, ordered event log, and referenced artifacts.
 
-```json
-{
-  "text": "fn main() {}",
-  "language": "rust"
-}
-```
+### Typed Object
 
-Station can know, separately:
+A Typed Object is a clean value or reference plus Station-owned metadata:
 
-- what type it is;
-- what roles it has;
-- which programs can accept it;
-- which outlets can present it;
-- how agents should describe it;
-- where it came from;
-- whether it is safe to replay or recompute.
+- type and version;
+- semantic roles;
+- capabilities and methods;
+- provenance;
+- permissions;
+- agent-readable description;
+- replay and storage behavior.
 
-This keeps programs simple while the system handles routing, state, replay, and presentation.
+Examples include code blocks, media references, messages, notifications, command results, artifacts, patch proposals, outlet descriptors, and executable program references.
 
-## ProgramObjects
+### ProgramObject
 
-Programs are not primarily GUI apps in this model.
+A ProgramObject is an executable Typed Object reference. It declares:
 
-A ProgramObject is an executable typed object. It declares what it accepts, what it emits, and whether it is safe to replay.
+- accepted input types;
+- emitted output types;
+- execution requirements;
+- permissions;
+- execution class;
+- timeout, cancellation, and replay behavior.
 
-Because object values stay clean, execution is invoked by Station through object references and reflection metadata. Conceptually:
+Programs do not directly mutate Project state. They return results for Station to validate and accept.
 
-```text
-exec_object_ref(object_ref, invocation, context)
-```
+Initial execution classes are:
 
-The executable behavior is not embedded directly into the clean payload.
-
-Initial execution classes:
-
-- `pure`: same input and version always produce the same output;
-- `deterministic`: same pinned input, version, and context produce the same output;
-- `effectful`: uses filesystem, shell, network, time, or environment;
+- `pure`: safe pure transformation;
+- `deterministic`: reproducible with pinned version, inputs, and context;
+- `effectful`: filesystem, process, network, time, or external mutation;
 - `ai`: model-backed or agentic execution.
 
-Effectful and AI outputs must be recorded. Replay should restore accepted results, not re-run a shell command or ask a model again.
+### Station Runtime Node
 
-## Event Log And Artifacts
+A node advertises capabilities relevant to execution and outlets:
 
-Nova Station state should be reconstructable from events and snapshots.
+- available ProgramObjects and connectors;
+- models, CPU, GPU, memory, and hardware;
+- physical and software outlets;
+- load and availability;
+- trust, permissions, and policy constraints;
+- network and locality context.
 
-The first local durable event format is planned as JSON Lines because it is easy to inspect, search, debug, and share during early development.
+There is no required primary host.
 
-Payload strategy is hybrid:
+### Outlet
 
-- important routing/reducer metadata stays inline;
-- small payloads can be inline when that helps speed;
-- large outputs become artifact references with hashes and previews.
+An outlet is a focused endpoint or adapter with semantic roles and capabilities.
 
-The first artifact store can be in-memory for tests, then move to filesystem-backed artifacts.
+Physical examples include displays, keyboards, microphones, speakers, touch screens, sensors, and controllers.
 
-## First Prototype Target
+Software examples include code editor, media player, log presenter, notification handler, voice/audio adapter, command surface, and legacy application host.
 
-The first core prototype should not depend on Wayland, OpenGL, Smithay, or the visual shell.
+## Execution Placement Is Separate From Delivery
 
-It should prove:
-
-```text
-input text
-    -> stub agent
-    -> selected ProgramObject
-    -> Station invocation of executable object reference
-    -> typed output
-    -> event
-    -> reducer
-    -> routed outlet projection
-```
-
-The demo will likely include:
-
-- a pure text transform program for replay-safe tests;
-- an effectful shell command program that records stdout, stderr, and exit code;
-- text/error/debug outlets.
-
-## Appliance Profile Target
-
-The same core should eventually boot a purpose-built Station node from a declarative profile:
+Consider image generation requested from a phone.
 
 ```text
-profile
-    -> default Project
-    -> physical outlets
-    -> software outlets
-    -> connectors
-    -> agents/models
-    -> routing policy
+phone
+    -> InvocationRequested
+    -> Station selects trusted GPU workstation
+    -> workstation generates image artifact
+    -> Station validates and accepts result
+    -> preview delivered to phone
+    -> full image delivered to tablet or TV
 ```
 
-Example:
+The phone is the source node. The workstation is the executor. The phone, tablet, or TV may be delivery outlets.
+
+Placement policy considers capability, permissions, trust, load, cost, locality, network conditions, and Project policy.
+
+Delivery policy considers object roles, outlet capabilities, user context, Project configuration, and fallback options.
+
+The two decisions must not collapse into one.
+
+## Asynchronous Invocation Lifecycle
+
+Program execution is not modeled as a blocking product-level function call.
 
 ```text
-English Tutor
-    -> microphone + speaker
-    -> voice/audio outlet
-    -> English tutor agent
-    -> audiobook/audio connector
-    -> English Learning Project
+InvocationRequested
+    -> InvocationAccepted / InvocationRejected
+    -> ExecutionPlaced
+    -> ExecutionStarted
+    -> Progress / OutputChunk / ArtifactCreated / LogEmitted
+    -> ExecutionSucceeded / ExecutionFailed / ExecutionCanceled / ExecutionTimedOut
+    -> ResultAccepted
 ```
 
-This proves that Nova Station is not only a visual computer shell. It can also become a small dedicated device while using the same Project state, event log, Typed Objects, routing, and outlet model.
+Durable state stores invocation ID, source and executor nodes, lifecycle status, provenance, progress, timeout, cancellation, accepted outputs, and artifact references.
 
-## Graceful Missing Outlets
+This allows immediate tasks, long-running model work, streaming commands, remote queues, retries, parallel execution, and late completion to use one model.
 
-Missing outlets should not break the system.
+## Events, Artifacts, And Replay
 
-Example:
+The first durable event log is planned as inspectable JSON Lines.
 
-```text
-User: "I want to watch the latest episode from a channel I follow"
-    -> agent selects a video-service connector
-    -> connector returns a MediaRef
-    -> Station tries to route it to a media outlet
-```
+Payload storage is hybrid:
 
-If a media outlet is available, the video plays there.
+- reducer and routing metadata stays inline;
+- small values may stay inline when useful;
+- large outputs become content-addressed artifact references with hashes, metadata, and previews.
 
-If no media outlet is available, the object is still valid. Station can keep the media reference and offer alternatives:
+Pure deterministic work may be recomputed only with pinned versions and inputs.
 
-- summarize the video through text;
-- play or extract audio through an audio outlet;
-- queue it until a media outlet appears;
-- open it through a compatibility surface if allowed.
+Effectful and AI work is recorded. Replay restores accepted stdout, stderr, exit code, media, model output, or other artifacts instead of repeating the external action.
 
-The connector did not fail. The media object did not vanish. Only the current presentation route is unavailable.
+This is necessary for restore, explanation, Time Machine, synchronization, and agent accountability.
 
-This is a core rule: failure to present is not failure to compute, fetch, store, or understand.
+## Graceful Routing Failure
 
-The same rule applies across Project contexts. If a Work Project has no media outlet, Station can explain the capability mismatch and offer to temporarily attach a media outlet, switch to an Entertainment/Home Project, queue the media, or degrade to audio/text.
+A valid object can exist without a currently compatible outlet.
 
-Why this matters:
+For example, a connector can return a `MediaRef` while the active Project has no video outlet.
 
-Nova Station is not trying to polish windows first. It is trying to build the execution/state kernel that can later power visual boards, voice-only operation, multi-device workflows, agents, and compatibility apps.
+Station retains the object and may offer:
+
+- text summary;
+- audio-only playback;
+- queue for later;
+- temporary outlet attachment;
+- Project switch;
+- compatibility surface.
+
+Unhandled presentation is a modeled routing state, not a crash and not permission to discard the result.
+
+## First Headless Prototype
+
+The first implementation should stay local and in-memory where practical while preserving distributed contracts.
+
+It should include:
+
+- Typed Object descriptors;
+- ProgramObject execution contracts;
+- Station Runtime node and execution capability descriptors;
+- execution placement matcher;
+- invocation/task descriptors and lifecycle events;
+- role, capability, and outlet descriptors;
+- delivery routing matcher;
+- event envelope and in-memory event log;
+- deterministic reducer and projection;
+- stub agent selector;
+- pure text transform program;
+- effectful shell-command program;
+- text, log, error, and debug outlets.
+
+## Acceptance Checks
+
+The prototype is meaningful when it can prove all of the following without GUI dependencies:
+
+1. A source event selects and invokes a ProgramObject through Station.
+2. Placement policy chooses a compatible executor descriptor, even if the first executor is local.
+3. Invocation lifecycle events are recorded in order.
+4. Program output cannot mutate Project state directly.
+5. Accepted output creates deterministic reduced state and outlet projections.
+6. Replay reconstructs the same state.
+7. Replay does not repeat the effectful shell command.
+8. Missing outlets produce an explainable fallback state.
+9. The same contracts can later attach visual, voice, appliance, or compatibility presentations.
+
+## Not In The First Proof
+
+- production cloud synchronization;
+- real multi-node transport;
+- full agent provider integration;
+- final package and outlet repositories;
+- production security sandboxing;
+- complete Board or Stack UI;
+- production compositor integration;
+- final artifact persistence.
+
+The first proof is intentionally small. Its job is to validate the operating model before presentation complexity grows around it.
+
+Read the [Vision](VISION.md), [Stories](STORIES.md), [Appliance Profiles](APPLIANCE_PROFILES.md), or [Public Roadmap](ROADMAP.md).

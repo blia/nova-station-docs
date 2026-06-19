@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-06-19: Story-Led Documentation Refactor
+
+- Rebuilt the README as a concise public entry point around the API/frontend Project-switching story.
+- Added public Stories pages in English and Ukrainian.
+- Rewrote both Pitch documents around concrete use cases, distributed execution, native agents, and durable state.
+- Rewrote Vision to include execution placement, asynchronous invocation lifecycle, device roles, proactive agents, and product guardrails.
+- Reworked Core Runtime into a verifiable headless proof with explicit contracts and acceptance checks.
+- Updated Appliance Profiles, Roadmap, How To Help, and Announcements to match the current project model.
+
 ## 2026-06-19: Public Announcement Channel
 
 - Linked the public Nova Station Telegram channel.

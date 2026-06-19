@@ -4,9 +4,21 @@ Project-first AI operating environment.
 
 Be focused.
 
-Nova Station is not a nicer desktop and not a chatbot attached to old windows.
+Nova Station is an attempt to rethink the operating environment around Projects, durable state, native agents, and devices with explicit roles.
 
-It is a different operating-system thesis:
+It is not a nicer desktop and not a chatbot attached to old applications.
+
+## The Problem
+
+Imagine working on an API and a frontend at the same time.
+
+The terminal has tabs for both. The browser has tabs for both. Code, logs, tasks, chats, and AI agents are scattered across tools. To switch context, you reconstruct the Project manually from windows and memory.
+
+Modern operating systems make the person carry the Project.
+
+Nova Station asks the system to carry it instead.
+
+## A Different Starting Point
 
 ```text
 not apps first
@@ -19,136 +31,70 @@ agents first
 outlets by role
 ```
 
-Nova Station starts from Projects: durable contexts with state, history, agents, connectors, typed objects, outlets, device roles, logs, media, code, notifications, and restore points.
+A Project is not a folder, repository, workspace, or group of windows. It is a durable context containing state, history, agents, connectors, typed objects, tasks, code, media, logs, device roles, and restore points.
 
-The goal is a Station: one project context, many devices, many outlets, coordinated through state.
-
-## Why This Matters
-
-Mainstream operating systems are powerful universal app platforms, but they still force people to juggle windows, tabs, app silos, device-local sessions, and scattered context.
-
-That model wastes human attention and machine resources.
-
-It also makes AI weaker than it should be. Agents need project state, history, typed outputs, permissions, and routing policy. They do not need to guess what matters from a pile of unrelated windows.
-
-Nova Station explores a different model:
-
-- Projects are first-class.
-- Agents are native system participants.
-- Devices are runtime nodes with roles.
-- Presentation is not necessarily GUI.
-- Applications dissolve into connectors and focused capabilities.
-- Typed Objects move through routing policy.
-- State is replayable, restorable, explainable, and eventually syncable across machines.
-
-## The Core Idea
-
-Traditional systems:
-
-```text
-desktop -> windows -> apps -> tabs -> project context
-```
-
-Nova Station:
+The user enters a Command Center, chooses a Project, and continues from the real state of that work.
 
 ```text
 Station -> Command Center -> Project -> Presentation -> Outlets
+                         Agents alongside every level
 ```
 
-Examples:
+## What This Enables
 
-- A laptop can show a board with code, logs, browser compatibility surfaces, agents, and status.
-- A phone can become a control surface, virtual keyboard, approval device, or secondary viewer.
-- A TV can become a media outlet.
-- A speaker can become voice input and audio output.
-- A car can expose navigation, warnings, audio, calls, and voice interaction.
-- A Raspberry Pi with only microphone and speaker can still participate through audio/voice agents.
-- A dedicated learning device can boot directly into an English Tutor Project through a voice/audio appliance profile.
+- **Switch Projects, not tabs.** API and frontend can restore separate code, browser, terminal, logs, agents, and status contexts.
+- **Ask on one device, execute on another.** A phone can request an image while Station routes generation to a trusted GPU workstation and delivers the result to the best media outlet.
+- **Use the same Project without a screen.** A Raspberry Pi with a microphone and speaker can run a voice-only English Learning Project.
+- **Keep valid results when presentation is unavailable.** A video reference without a media outlet can become a summary, audio playback, queued item, temporary outlet request, or compatibility surface.
+- **Restore work on another machine.** Snapshots, ordered events, and artifacts reconstruct Station-owned Project state without pretending to restore live process memory.
+- **Make applications smaller.** Editors, source hosting, media services, and chat systems can expose focused capabilities while Station owns Project context and delivery policy.
 
-The Project is the same. The presentation changes.
+Read the fuller [Stories](docs/STORIES.md) or [Історії українською](docs/STORIES.uk.md).
 
-## Apps Dissolve
+## One Project, Many Presentations
 
-Many things we call apps are bundles of responsibilities that should not be bundled forever:
+The same Project can appear as:
 
-```text
-service access
-data fetching
-editing
-media playback
-chat
-notifications
-search
-layout
-settings
-device handling
-```
+- a Board on a large display;
+- a focused Stack on a phone;
+- a voice/audio session without GUI;
+- a presenter view plus a separate audience display;
+- a media experience across TV, phone controls, and speakers;
+- a compatibility surface for Firefox, terminals, editors, or other existing applications.
 
-Nova Station separates those responsibilities.
+Devices do not need to stream one desktop everywhere. Each Station Runtime node advertises capabilities and can become an input, output, execution, approval, media, voice, or control node.
 
-YouTube-like services can expose media references and playback controls. Station routes them to media outlets, feed outlets, phone controls, speakers, queues, or fallbacks.
+The Project is shared. The presentation changes.
 
-GitHub-like services can expose repositories, files, issues, checks, notifications, and actions. Station routes them to code outlets, logs, status, agents, and notifications.
+## Current Status
 
-IDE-like tools can split into code editor outlets, language/tool connectors, build/test/log/status outlets, Git/source-hosting connectors, terminal/command outlets, agents, and Project state.
+Nova Station is very early. It is not yet a usable operating system.
 
-The editor edits code.
+Current work includes:
 
-The Project is the environment.
+- an accepted Station Core Runtime design;
+- contracts for Typed Objects, ProgramObjects, events, artifacts, routing, execution placement, and asynchronous tasks;
+- early visual shell and nested Wayland compositor experiments;
+- first compatibility-surface hosting experiments;
+- public stories and announcements used to test whether the product model is coherent.
 
-## Missing Outlets Do Not Break The Flow
+The immediate priority is a headless core proof before deeper visual integration. The compositor remains important presentation and compatibility infrastructure, but it is not the product center.
 
-If a connector returns a media reference but no media outlet exists, Station should not fail like a classic app.
+## Read Next
 
-It can offer:
+- [Stories](docs/STORIES.md) / [Історії](docs/STORIES.uk.md): concrete scenarios first.
+- [Pitch](docs/PITCH.md) / [Пітч українською](docs/PITCH.uk.md): the argument for Nova Station.
+- [Vision](docs/VISION.md): the complete public product model.
+- [Station Core Runtime](docs/CORE_RUNTIME.md): how the first technical proof fits together.
+- [Station Appliance Profiles](docs/APPLIANCE_PROFILES.md): purpose-built devices from the same runtime.
+- [Public Roadmap](docs/ROADMAP.md): current direction and non-goals.
+- [Announcements](docs/ANNOUNCEMENTS.md): major public updates.
+- [Telegram channel](https://t.me/nova_station_channel): Ukrainian announcements.
+- [How To Help](docs/HOW_TO_HELP.md): feedback, hardware, compute, and practical support.
+- [Changelog](CHANGELOG.md): curated documentation changes.
 
-- text summary;
-- audio-only playback;
-- queue for later;
-- temporary outlet attachment;
-- switch to another Project;
-- compatibility surface.
+## Help The Project
 
-The object remains valid. Only the current presentation route is unavailable.
+The most useful support right now is attention, honest feedback, hardware, compute, audio/video equipment, sharing, and sponsorship.
 
-## Read First
-
-- [Pitch](docs/PITCH.md)
-- [Pitch in Ukrainian](docs/PITCH.uk.md)
-- [Vision](docs/VISION.md)
-- [Station Appliance Profiles](docs/APPLIANCE_PROFILES.md)
-- [Station Core Runtime](docs/CORE_RUNTIME.md)
-- [Announcements](docs/ANNOUNCEMENTS.md)
-- [Telegram channel](https://t.me/nova_station_channel) - Ukrainian updates
-- [Roadmap](docs/ROADMAP.md)
-- [How To Help](docs/HOW_TO_HELP.md)
-- [Changelog](CHANGELOG.md)
-
-## Status
-
-Very early.
-
-Current private prototype work includes:
-
-- Rust/OpenGL visual shell experiments;
-- Aura-inspired login/shell UI;
-- Smithay-based nested Wayland compositor prototype;
-- first Wayland client surface hosting;
-- Firefox/terminal launch experiments;
-- Station Core Runtime RFC for Typed Objects, ProgramObjects, event logs, artifacts, routing, and non-GUI operation.
-
-This is not yet a usable operating system.
-
-It is a product thesis, architecture, and working prototype path.
-
-## How To Help
-
-The most useful help right now is feedback, attention, hardware, compute, and reality checks.
-
-Start here:
-
-- [How To Help](docs/HOW_TO_HELP.md)
-- [Announcements](docs/ANNOUNCEMENTS.md)
-- [Changelog](CHANGELOG.md)
-
-Planning and core development are currently intentionally tight and AI-first. The project still needs real people to challenge the idea, point out unclear explanations, share it with the right readers, and provide practical support.
+Start with [How To Help](docs/HOW_TO_HELP.md).

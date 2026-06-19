@@ -2,166 +2,134 @@
 
 Nova Station is very early.
 
-The most useful help right now is attention, feedback, reality checks, basic resources, and a small circle of people who care enough to follow the idea while it is still forming.
+The most useful support right now is attention, honest feedback, practical resources, and a small group of people willing to follow the idea while it is still being tested.
 
-This is not a polished product launch. It is an early project asking for the right kind of support.
+This is not a polished product launch and not yet a call for broad feature development.
 
-## What I Do Not Need Right Now
+## Start By Understanding The Idea
 
-The most expensive resources are time, architectural thinking, planning, and core development.
+Read one of these first:
 
-For now, I am taking those on myself.
+- [Stories](STORIES.md): concrete scenarios such as Project switching, distributed image generation, voice-only operation, and graceful media fallback.
+- [Історії українською](STORIES.uk.md): the same scenarios in Ukrainian.
+- [Pitch](PITCH.md) or [Пітч українською](PITCH.uk.md): the product argument.
+- [Vision](VISION.md): the complete public model.
 
-I am not looking for random planning help, random feature PRs, or people to take over technical direction while the project is still in the design/MVP stage.
+Then say what made sense and what did not.
 
-What I need most is everything around that core work:
+## Feedback And Reality Checks
 
-- reality checks;
-- attention;
-- sharing;
-- hardware;
-- test devices;
-- compute resources;
-- audio/video setup;
-- sponsorship;
-- people willing to read, ask, and react honestly.
+Useful questions include:
+
+- Which story makes Nova Station easiest to understand?
+- Which story feels weak or unrealistic?
+- What important workflow is missing?
+- What sounds like a renamed feature from an existing OS?
+- Where does the project accidentally fall back into app/window/desktop thinking?
+- Which permission, security, or failure case is being ignored?
+- What would make you want to try, follow, or sponsor the project?
+
+The goal is not praise. The goal is contact with reality.
 
 ## Simple Public Support
 
 If the idea resonates:
 
-- star the public repository;
-- watch/follow the repository;
-- share it with people who might understand the idea;
-- send it to friends with enough imagination to see where this could go;
-- tell me what was clear and what was confusing;
+- star and watch the public repository;
+- follow the [Telegram announcement channel](https://t.me/nova_station_channel);
+- share a specific story with someone who may understand the idea;
 - ask hard questions;
-- give moral support if that is all you can do right now.
+- point out unclear language or contradictions;
+- give moral support if that is what you can offer.
 
-This already helps. The project needs contact with real people, not only AI agents and private notes.
+Attention and thoughtful reactions are useful at this stage.
 
-## Feedback And Reality Checks
+## What Is Not Needed Yet
 
-Useful feedback:
+The project owner is currently handling product direction, architecture, planning, and core development.
 
-- What is unclear?
-- What sounds wrong?
-- What sounds too abstract?
-- What feels genuinely exciting?
-- What feels fake or overpromised?
-- What existing systems should this be compared to?
-- Which use cases feel strong?
-- Which use cases feel weak?
-- What would make you want to follow the project?
-- What would make you want to sponsor it?
+Random feature proposals, broad rewrites, and uncoordinated pull requests are not the priority while the core model and MVP contracts are still being shaped.
 
-The goal is not praise. The goal is contact with reality.
+Focused corrections, research, testing, and resources around the core work are more useful.
 
-## Follow The Announcements
+## Hardware And Outlet Test Devices
 
-I plan to publish updates at the end of a sprint, day, or meaningful iteration.
+Nova Station is built around devices with roles, not one assumed desktop screen.
 
-Public announcements should explain:
+Useful test hardware includes:
 
-- what changed;
-- why it matters;
-- what is still unclear;
-- what feedback is needed next.
+- old phones and tablets;
+- small displays and touch screens;
+- microphones, speakers, and audio adapters;
+- webcams and capture devices;
+- Raspberry Pi or mini PCs;
+- USB input devices;
+- gamepads and unusual controllers;
+- hardware that can act as a sensor, input, output, or compute node.
 
-I would prefer to communicate not only through text, but also through video presentations and short updates.
+A device that is unused elsewhere may be valuable for testing Board, Stack, voice, media, hardware-outlet, or constrained-node stories.
 
-## Help With Video / Audio Setup
+## Compute And Model Resources
 
-I want to record video presentations and explain Nova Station by voice.
+Useful resources include:
 
-Right now I do not have a reliable setup for that.
+- CPU or GPU workstation time;
+- local model inference;
+- coding-agent experiments;
+- build and test machines;
+- remote development environments;
+- hardware where Linux, Wayland, compositor, audio, and multi-node experiments can run.
 
-Useful help:
+One long-term story is a trusted supporter sharing limited workstation or model compute as an execution-capable Station node. That requires real identity, permission, privacy, and provenance design; current shared compute can still help development before that product path exists.
+
+## Video And Audio Setup
+
+The project should eventually be explained through voice and video, not only text.
+
+Useful support includes:
 
 - webcam;
 - microphone;
-- audio interface or adapter if needed;
+- audio interface or adapters;
 - lighting;
 - capture hardware;
-- any small hardware pieces that make video/audio updates possible.
+- help building a reliable recording setup.
 
-Even basic working equipment would help make the project easier to explain to people.
+Better communication equipment makes the project easier to explain and challenge publicly.
 
 ## Financial Sponsorship
 
-You can also support the project directly with money.
+Financial support can help cover:
 
-This can help with:
+- focused development time;
+- test hardware and devices;
+- audio/video equipment;
+- hosting and infrastructure;
+- model, tool, or service costs;
+- experiments that are difficult in the current constrained environment.
 
-- development time;
-- hardware;
-- microphones/camera/capture setup;
-- test devices;
-- hosting/infrastructure;
-- paid tools/services if needed.
-
-Small support still matters. A sponsor is anyone who helps the project continue.
-
-## Compute / Model Resources
-
-If you have a powerful workstation, GPU machine, coding model setup, local AI environment, or spare compute resources, sharing access or running experiments could help.
-
-Useful resources:
-
-- powerful CPU/GPU workstation time;
-- local model inference;
-- coding-agent/model experiments;
-- build/test machines;
-- remote development environment;
-- hardware where Linux/Wayland/compositor experiments can run better than on the current Android VM.
-
-The current development environment is constrained. Extra compute can unblock experiments.
-
-## Hardware / Outlet Test Devices
-
-Nova Station is built around outlets and presentations, not just one desktop screen.
-
-That means a lot of physical devices may become useful for testing:
-
-- old phones;
-- tablets;
-- small displays;
-- webcams;
-- microphones;
-- speakers;
-- audio adapters;
-- Raspberry Pi / mini PCs;
-- USB input devices;
-- touch screens;
-- gamepads / controllers;
-- random hardware that can act as input or output.
-
-Something that is useless or unused for you may be exactly the kind of outlet device I need for experiments.
+A sponsor is anyone who helps the project continue. Small support still matters.
 
 ## Useful Expertise
 
-Expertise that can help:
+Relevant expertise includes:
 
-- operating systems;
-- Wayland/compositors;
-- graphics backends;
-- UI architecture;
-- event sourcing;
-- distributed state/sync;
-- AI agent orchestration;
-- developer experience;
-- technical writing;
-- product positioning;
-- hardware/audio/video setup.
+- operating systems and distributed systems;
+- event sourcing, synchronization, and durable state;
+- AI agent orchestration and permissions;
+- Wayland, compositors, graphics, and rendering architecture;
+- UI architecture and accessibility;
+- hardware, embedded systems, audio, and device integration;
+- developer experience and technical writing;
+- product positioning and critical review.
 
-## Not Needed Yet
+Expertise is most useful when connected to a concrete story or current roadmap question.
 
-Random feature PRs are not the priority yet.
+## Follow Progress
 
-The architecture is still being shaped. Focused questions, critique, and sponsor/community support matter more than uncoordinated code.
+- [Telegram](https://t.me/nova_station_channel): curated Ukrainian announcements.
+- [Announcements](ANNOUNCEMENTS.md): canonical announcement sources.
+- [Public Roadmap](ROADMAP.md): current priorities and non-goals.
+- [Changelog](../CHANGELOG.md): documentation and direction changes.
 
-## Contact / Discussion
-
-Public discussion channels will be added later.
-
-For now, open an issue when issues are enabled, or contact the project owner directly if you were invited to review the early docs.
+For now, public feedback can be shared through repository issues when available or directly with the project owner.

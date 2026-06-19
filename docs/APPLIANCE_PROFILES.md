@@ -1,81 +1,86 @@
 # Station Appliance Profiles
 
-Nova Station is not only a full-screen computer environment.
+Nova Station should be able to power focused devices without creating a separate application platform for each one.
 
-The same runtime model can build purpose-specific devices.
-
-An appliance profile is a declarative way to assemble a Station node:
+An Appliance Profile is a declarative composition of the general Station model:
 
 ```text
-core runtime binary
-    -> install/profile config
-    -> outlet repository
-    -> connectors
-    -> models/agents
+Station Core Runtime
+    -> profile configuration
     -> default Project template
+    -> physical and software outlets
+    -> connectors and ProgramObjects
+    -> agents and model configuration
+    -> routing and permission policy
 ```
 
-This is similar in spirit to NixOS-style composition: small versioned blocks form a working system.
+The device can be narrow and purpose-built while its Project state remains portable.
 
-## Example: English Tutor
+## English Tutor Story
 
-A user has a Raspberry Pi with a microphone and speaker.
+A Raspberry Pi has a microphone and speaker but no display.
 
-They want it to become a dedicated English-learning device.
+The user wants a dedicated English-learning device that starts ready for conversation rather than booting into a generic desktop.
 
-The profile can declare:
+The profile declares:
 
-- physical outlets: microphone and speaker;
-- software outlet: voice/audio;
-- default Project: English Learning;
-- agent: English tutor;
+- default `English Learning` Project;
+- microphone and speaker physical outlets;
+- voice/audio software outlet;
+- English tutor agent;
 - model configuration;
-- connectors: YouTube/audio, audiobooks, dictionary/translation;
-- routing: speech input to tutor agent, audio media to speaker, lesson progress to Project state.
+- audiobook, dictionary, translation, and audio connectors;
+- routing from speech to tutor and audio to speaker;
+- permission and confirmation policy.
 
-After boot, the device joins the user's Station account as a runtime node.
+The Project can remember:
 
-It can remember:
-
-- listened audiobooks;
-- playback position;
-- questions asked by the user;
+- audiobooks and playback position;
+- questions and answers;
 - corrections;
 - vocabulary progress;
 - lesson history;
-- tutor-agent decisions.
+- accepted tutor outputs and provenance.
 
-The user can later switch to the same English Learning Project from a laptop, phone, car, or other Station node. The Project stays the same. The available outlets decide how it is presented.
+The same English Learning Project can later continue on a laptop, phone, car, or another Station node. Its presentation changes with available outlets.
 
-## Why This Matters
+## Why A Profile Instead Of A New App
 
-This turns Nova Station from “an OS UI” into a composable runtime for user-owned devices.
+The tutor does not need a custom operating-system shell, account model, state engine, device discovery layer, event log, or sync architecture.
 
-A Station node can be:
+Those belong to Station.
 
-- a laptop board;
-- a phone control surface;
-- a TV media outlet;
-- a speaker voice node;
-- a car assistant;
-- a smart-home hub;
-- a dedicated learning device;
-- a custom hardware outlet.
+The profile contributes only what makes the device specific:
 
-The system model does not change.
+- Project template;
+- outlets;
+- connectors;
+- agents and models;
+- policy.
 
-Projects, Typed Objects, routing policy, outlets, event logs, and agents remain the same.
+This pattern can also support a media node, presentation controller, workshop device, voice terminal, home hub, accessibility device, or custom hardware interface.
 
-Only the node profile and available capabilities change.
+## Same Core, Different Device
 
-## Early Scope
+A profile changes the capabilities and default experience, not the underlying product model.
 
-The first version does not need a full package manager or image builder.
+Projects, Typed Objects, ProgramObjects, tasks, events, artifacts, routing, permissions, and agents remain governed by Station Core.
 
-A local manifest and local outlet registry are enough to prototype:
+That keeps purpose-built hardware compatible with the wider Station account and Project history.
 
-- profile loading;
-- outlet installation;
-- connector registration;
+## Early Prototype Scope
+
+The first profile proof does not need a package manager or image builder.
+
+A local manifest and registry can prove:
+
+- profile parsing;
+- outlet and connector registration;
 - default Project creation;
-- routing into a voice/audio-only Project.
+- permission and routing configuration;
+- voice/audio-only presentation;
+- persistent learning events and projections.
+
+Security, signed packages, remote repositories, updates, hardware provisioning, and production appliance images come later.
+
+Read the [English Tutor story](STORIES.md#a-voice-only-english-tutor), [Core Runtime](CORE_RUNTIME.md), or [Roadmap](ROADMAP.md).
