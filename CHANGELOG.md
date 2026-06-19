@@ -6,6 +6,7 @@
 - Replaced the repository devlog format with a curated announcement format.
 - Added the first Ukrainian announcement introducing the Nova Station vision.
 - Removed the earlier draft devlog posts.
+- Refined the introductory announcement with the concrete API/frontend Project-switching story.
 
 This changelog is curated. It is not a raw commit log.
 
