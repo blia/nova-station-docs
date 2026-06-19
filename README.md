@@ -118,7 +118,7 @@ The object remains valid. Only the current presentation route is unavailable.
 - [Vision](docs/VISION.md)
 - [Station Appliance Profiles](docs/APPLIANCE_PROFILES.md)
 - [Station Core Runtime](docs/CORE_RUNTIME.md)
-- [Devlog / Channel](docs/DEVLOG.md)
+- [Announcements](docs/ANNOUNCEMENTS.md)
 - [Telegram channel](https://t.me/nova_station_channel) - Ukrainian updates
 - [Roadmap](docs/ROADMAP.md)
 - [How To Help](docs/HOW_TO_HELP.md)
@@ -148,7 +148,7 @@ The most useful help right now is feedback, attention, hardware, compute, and re
 Start here:
 
 - [How To Help](docs/HOW_TO_HELP.md)
-- [Devlog / Channel](docs/DEVLOG.md)
+- [Announcements](docs/ANNOUNCEMENTS.md)
 - [Changelog](CHANGELOG.md)
 
 Planning and core development are currently intentionally tight and AI-first. The project still needs real people to challenge the idea, point out unclear explanations, share it with the right readers, and provide practical support.

@@ -35,7 +35,7 @@ This is a public summary, not the full internal roadmap.
 - Versioned outlet/connector repositories.
 - Purpose-built Station appliance profiles.
 - Agent observation over event streams.
-- Public devlogs/changelog.
+- Public announcements and changelog.
 - Vulkan/other rendering backend when platform support is realistic.
 
 ## Non-Goals Right Now

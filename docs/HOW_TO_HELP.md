@@ -57,11 +57,11 @@ Useful feedback:
 
 The goal is not praise. The goal is contact with reality.
 
-## Follow The Changelog / Devlog
+## Follow The Announcements
 
 I plan to publish updates at the end of a sprint, day, or meaningful iteration.
 
-The public changelog/devlog should explain:
+Public announcements should explain:
 
 - what changed;
 - why it matters;
