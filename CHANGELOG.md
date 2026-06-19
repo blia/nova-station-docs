@@ -2,17 +2,19 @@
 
 This changelog is curated. It is not a raw commit log.
 
-## 2026-06-19: Public Devlog Channel
+## 2026-06-19: Public Bilingual Devlog Channel
 
 Added a repository-native devlog/channel section:
 
 - `docs/DEVLOG.md` as the public post index;
-- `docs/devlog/` for individual posts;
-- first Ukrainian channel-style post about distributed execution routing and async invocation lifecycle.
+- `docs/devlog/` for individual bilingual posts;
+- Ukrainian and English versions for every channel post;
+- first introductory post explaining what Nova Station is and what is happening;
+- second post about distributed execution routing and async invocation lifecycle.
 
 Why it matters:
 
-Nova Station now has a simple public update format that can later be republished to Telegram or another channel. The repository remains the source of truth for written updates, and the external channel can become a distribution surface.
+Nova Station now has a simple public update format that can later be republished to Telegram or another channel. The repository remains the source of truth for written updates, and the external channel can become a distribution surface. Keeping Ukrainian and English versions from the start makes each post useful locally and internationally.
 
 ## 2026-06-18: Station Core Runtime RFC
 
