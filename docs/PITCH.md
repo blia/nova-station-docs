@@ -1,6 +1,6 @@
 # Nova Station
 
-Project-first AI operating environment.
+Project-first agentic operating environment.
 
 Be focused.
 
@@ -10,9 +10,11 @@ People do not work on windows, tabs, or applications. They work on Projects.
 
 Yet the operating system does not really know that.
 
-When someone works on an API and a frontend in parallel, both contexts are scattered across terminal tabs, browser tabs, editor windows, logs, tasks, chats, and AI sessions. The person remembers what belongs together and rebuilds the context every time attention moves.
+When someone works on an API and a frontend in parallel, both contexts are scattered across terminal tabs, browser tabs, editor windows, logs, tasks, chats, and agent/model sessions. The person remembers what belongs together and rebuilds the context every time attention moves.
 
 Modern computers are powerful, but the operating model still makes the human carry the Project.
+
+That operating model is learned behavior, not a natural law. Nova Station aims to establish a new cognitive path: the person operates intention and Project context while Station coordinates capabilities and returns results into durable context. “New neural pathways” is a product metaphor for learning that interaction, not a claim that Station literally simulates the brain.
 
 Nova Station starts somewhere else:
 
@@ -46,7 +48,7 @@ API and frontend can be separate Projects even when they reuse the same editor, 
 
 ## Agents Belong Inside The System
 
-An AI agent should not have to infer the Project from a pile of unrelated windows.
+A Station agent should not have to infer the Project from a pile of unrelated windows.
 
 In Nova Station, agents participate at Station, Command Center, Project, task, routing, and outlet levels. They can observe permitted events, understand typed results, propose actions, request approval, invoke capabilities, and explain what happened.
 
@@ -102,7 +104,7 @@ language and debugger connectors
 build/test/log/status outlets
 Git/source-hosting connector
 terminal/command outlet
-AI agents
+agents and optional model providers
 Project state
 ```
 
@@ -126,7 +128,7 @@ snapshot + ordered event log + artifacts
 
 That enables restore, replay, explanation, branching, and future synchronization across machines.
 
-AI and effectful results are recorded when accepted. Replay restores those results instead of asking the model again or repeating an external action.
+Outputs marked as recorded-result-required are stored when accepted. Replay restores those results instead of asking a model again or repeating an external action.
 
 If one machine is lost, another machine can reconstruct the durable Project context. Nova Station does not claim to restore live Linux process memory; it restores the state that belongs to the Station.
 

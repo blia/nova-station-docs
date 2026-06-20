@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-06-20: Agentic Category And Precise Execution Metadata
+
+- Replaced the broad category line `Project-first AI operating environment` with `Project-first agentic operating environment`.
+- Clarified that agentic behavior can use deterministic policy, planners, learned models, LLMs, humans, or compositions; model providers are optional.
+- Removed `ai` as an execution class from current documentation.
+- Split execution metadata into effect mode, determinism, and replay behavior.
+- Added the cognition-aligned interaction thesis: app/window behavior is learned convention, and “new neural pathways” is a product metaphor rather than a literal neuroscience claim.
+- Kept older changelog entries unchanged as historical records of the previous terminology.
+
 ## 2026-06-19: Story-Led Documentation Refactor
 
 - Rebuilt the README as a concise public entry point around the API/frontend Project-switching story.

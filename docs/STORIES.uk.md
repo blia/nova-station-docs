@@ -58,7 +58,7 @@ Project спільний. Його presentations різні.
 
 ## IDE стає меншою
 
-Сучасні редактори постійно перетворюються на важкі IDE, бо кожен із них забирає собі project context, terminal, Git, tests, debugger, logs, packages, notifications, AI та layout management.
+Сучасні редактори постійно перетворюються на важкі IDE, бо кожен із них забирає собі project context, terminal, Git, tests, debugger, logs, packages, notifications, agents/model tooling та layout management.
 
 Nova Station переносить це середовище в Project. Code editor може зосередитися на редагуванні. Language tools, build/test status, Git hosting, terminal commands, logs та agents стають окремими connectors і outlets навколо спільного Project state.
 

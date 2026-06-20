@@ -58,7 +58,7 @@ The Project is shared. Its presentations are different.
 
 ## The IDE Becomes Smaller
 
-Modern editors repeatedly grow into heavy IDEs because each one absorbs project context, terminal, Git, tests, debugger, logs, packages, notifications, AI, and layout management.
+Modern editors repeatedly grow into heavy IDEs because each one absorbs project context, terminal, Git, tests, debugger, logs, packages, notifications, agents/model tooling, and layout management.
 
 Nova Station moves that environment into the Project. The code editor can focus on editing. Language tools, build/test status, Git hosting, terminal commands, logs, and agents become focused connectors and outlets around shared Project state.
 

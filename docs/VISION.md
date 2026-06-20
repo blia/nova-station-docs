@@ -1,6 +1,6 @@
 # Nova Station Vision
 
-Project-first AI operating environment.
+Project-first agentic operating environment.
 
 Be focused.
 
@@ -34,6 +34,24 @@ Nova Station treats that missing Project context as a system responsibility.
 API and frontend can be separate Projects even when they reuse the same tools. Switching Project restores the relevant code, logs, browser content, tasks, agents, status, outlet roles, and presentation.
 
 The user chooses the work. Station restores the environment around it.
+
+## A New Cognitive Path
+
+The app/window/desktop model is learned behavior, not a natural law of human-computer interaction.
+
+People have learned to reconstruct intent from applications, files, tabs, and device-local sessions. Nova Station explores another loop:
+
+```text
+human intention
+    -> Project context
+    -> relevant perception and action
+    -> Station coordinates capabilities
+    -> durable result returns to the Project
+```
+
+Project state externalizes part of the working memory people currently carry themselves. Presentations adapt the same meaning to vision, speech, hearing, touch, devices, or automation.
+
+“New neural pathways” is a metaphor for learning this different interaction pattern. Nova Station does not claim to simulate biological neurons or reproduce the brain literally.
 
 ## Product Model
 
@@ -111,13 +129,17 @@ ProgramObject
 
 Station knows or can restore metadata describing type, version, roles, capabilities, provenance, permissions, methods, agent-readable meaning, and replay behavior.
 
-A ProgramObject is an executable Typed Object reference. It declares accepted inputs, emitted outputs, execution class, permissions, and requirements.
+A ProgramObject is an executable Typed Object reference. It declares accepted inputs, emitted outputs, effect mode, determinism, replay behavior, permissions, and requirements.
 
 Programs do not mutate Project state directly. They return objects, artifacts, results, or patch proposals. Station validates and accepts events through the Project state boundary.
 
-## Two Routing Decisions
+## Three System Decisions
 
-Nova Station separates execution placement from result delivery.
+Nova Station separates capability selection, execution placement, and result delivery.
+
+### Capability Selection
+
+Station derives typed task requirements and chooses a capable ProgramObject, connector, model, agent, node capability, or human decision step. It can instead request clarification, escalate, queue work, or return explainable no-match.
 
 ### Execution Placement
 
@@ -253,7 +275,7 @@ This enables:
 
 Pure deterministic work may be recomputed when versions and inputs are pinned.
 
-Effectful commands, external service calls, and AI outputs are recorded as accepted events or artifacts. Replay restores the accepted result instead of repeating the effect or asking a model again.
+Outputs marked as recorded-result-required are stored as accepted events or artifacts. Replay restores the accepted result instead of repeating the effect or asking a model again.
 
 Nova Station synchronizes state it owns. It does not promise to preserve live Linux process memory, sockets, GPU buffers, or arbitrary application internals.
 
@@ -320,7 +342,7 @@ The first proof can execute locally while preserving contracts for future multi-
 
 Nova Station should not become:
 
-- a classic desktop with AI decoration;
+- a classic desktop with agent/model decoration;
 - a launcher for the same application silos;
 - a window manager presented as an operating-system revolution;
 - a remote-desktop product that streams one screen everywhere;

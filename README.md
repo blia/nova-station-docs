@@ -1,6 +1,6 @@
 # Nova Station
 
-Project-first AI operating environment.
+Project-first agentic operating environment.
 
 Be focused.
 
@@ -12,7 +12,7 @@ It is not a nicer desktop and not a chatbot attached to old applications.
 
 Imagine working on an API and a frontend at the same time.
 
-The terminal has tabs for both. The browser has tabs for both. Code, logs, tasks, chats, and AI agents are scattered across tools. To switch context, you reconstruct the Project manually from windows and memory.
+The terminal has tabs for both. The browser has tabs for both. Code, logs, tasks, chats, agents, and model-backed assistants are scattered across tools. To switch context, you reconstruct the Project manually from windows and memory.
 
 Modern operating systems make the person carry the Project.
 

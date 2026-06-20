@@ -116,7 +116,7 @@ Relevant expertise includes:
 
 - operating systems and distributed systems;
 - event sourcing, synchronization, and durable state;
-- AI agent orchestration and permissions;
+- agent/model orchestration and permissions;
 - Wayland, compositors, graphics, and rendering architecture;
 - UI architecture and accessibility;
 - hardware, embedded systems, audio, and device integration;

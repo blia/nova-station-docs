@@ -58,17 +58,18 @@ A ProgramObject is an executable Typed Object reference. It declares:
 - emitted output types;
 - execution requirements;
 - permissions;
-- execution class;
+- effect mode, determinism, and replay behavior;
 - timeout, cancellation, and replay behavior.
 
 Programs do not directly mutate Project state. They return results for Station to validate and accept.
 
-Initial execution classes are:
+Execution metadata uses separate axes:
 
-- `pure`: safe pure transformation;
-- `deterministic`: reproducible with pinned version, inputs, and context;
-- `effectful`: filesystem, process, network, time, or external mutation;
-- `ai`: model-backed or agentic execution.
+- effect mode: `pure` or `effectful`;
+- determinism: `deterministic` or `non_deterministic` with pinned version, inputs, and context;
+- replay behavior: `recompute_allowed` or `recorded_result_required`.
+
+Model-backed is provider metadata, not an execution class. Agentic behavior may be deterministic or model-backed.
 
 ### Station Runtime Node
 
@@ -143,7 +144,7 @@ Payload storage is hybrid:
 
 Pure deterministic work may be recomputed only with pinned versions and inputs.
 
-Effectful and AI work is recorded. Replay restores accepted stdout, stderr, exit code, media, model output, or other artifacts instead of repeating the external action.
+Work marked `recorded_result_required` is stored. Replay restores accepted stdout, stderr, exit code, media, model output, or other artifacts instead of repeating the external action.
 
 This is necessary for restore, explanation, Time Machine, synchronization, and agent accountability.
 

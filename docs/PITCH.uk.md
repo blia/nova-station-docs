@@ -1,6 +1,6 @@
 # Nova Station
 
-Project-first AI operating environment.
+Project-first agentic operating environment.
 
 Be focused.
 
@@ -10,9 +10,11 @@ Be focused.
 
 Але операційна система цього майже не розуміє.
 
-Коли я паралельно працюю над API та frontend, обидва контексти розкидані між вкладками термінала, браузером, редактором, логами, задачами, чатами й AI-сесіями. Я сам пам'ятаю, що до чого належить, і щоразу заново збираю контекст, коли перемикаю увагу.
+Коли я паралельно працюю над API та frontend, обидва контексти розкидані між вкладками термінала, браузером, редактором, логами, задачами, чатами й agent/model sessions. Я сам пам'ятаю, що до чого належить, і щоразу заново збираю контекст, коли перемикаю увагу.
 
 Сучасні комп'ютери дуже потужні, але стара модель досі змушує людину нести Project у власній голові.
+
+Ця модель — learned behavior, а не natural law. Nova Station формує інший cognitive path: людина оперує intention і Project context, а Station координує capabilities та повертає результат у durable context. «Нові нейронні зв'язки» — метафора навчання такій взаємодії, а не твердження, що Station буквально симулює мозок.
 
 Nova Station починає з іншої точки:
 
@@ -46,7 +48,7 @@ API та frontend можуть бути окремими Projects, навіть 
 
 ## Agents мають бути всередині системи
 
-AI-агент не повинен вгадувати Project із купи випадкових вікон.
+Station agent не повинен вгадувати Project із купи випадкових вікон.
 
 У Nova Station agents беруть участь на рівні Station, Command Center, Project, задач, routing та outlets. Вони можуть спостерігати дозволені events, розуміти typed results, пропонувати дії, просити підтвердження, запускати capabilities і пояснювати, що відбулося.
 
@@ -102,7 +104,7 @@ language і debugger connectors
 build/test/log/status outlets
 Git/source-hosting connector
 terminal/command outlet
-AI agents
+agents і optional model providers
 Project state
 ```
 
@@ -126,7 +128,7 @@ snapshot + ordered event log + artifacts
 
 Це дає restore, replay, explanation, branching і майбутню синхронізацію між машинами.
 
-AI та effectful results записуються після прийняття. Replay відновлює ці результати, а не питає model знову й не повторює зовнішню дію.
+Outputs із `recorded_result_required` записуються після прийняття. Replay відновлює ці результати, а не питає model знову й не повторює зовнішню дію.
 
 Якщо одну машину втрачено, інша може відновити довговічний контекст Project. Nova Station не обіцяє відновити живу пам'ять Linux-процесів; вона відновлює state, який належить Station.
 
