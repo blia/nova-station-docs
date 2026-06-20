@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-06-20: Durable Project Continuity Announcement
+
+- Published the second Ukrainian announcement around a concrete machine-loss scenario.
+- Explained the difference between recovering data and recovering the meaning and state of ongoing work.
+- Connected durable Project continuity to adaptive presentation and applications participating in, rather than owning, the Project.
+
 ## 2026-06-20: Agentic Category And Precise Execution Metadata
 
 - Replaced the broad category line `Project-first AI operating environment` with `Project-first agentic operating environment`.
